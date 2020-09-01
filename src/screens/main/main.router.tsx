@@ -11,9 +11,11 @@ import { Portfolio } from '@screens/portfolio';
 
 import { ROUTES } from '@constants/routes';
 
+import { TNavigationState } from '@typings/routes';
+
 const TabNavigation = () => {
   const [index, setIndex] = useState(0);
-  const [routes] = useState([
+  const [routes] = useState<TNavigationState[]>([
     { key: ROUTES.home, icon: 'home' },
     { key: ROUTES.markets, icon: 'markets' },
     { key: ROUTES.portfolio, icon: 'portfolio' },
@@ -34,6 +36,7 @@ const TabNavigation = () => {
       renderScene={renderScene}
       renderTabBar={TabBar}
       onIndexChange={setIndex}
+      swipeEnabled={false}
       tabBarPosition="bottom"
     />
   );

@@ -1,18 +1,24 @@
 import { TouchableHighlight } from 'react-native-gesture-handler';
 
 import React, { FC } from 'react';
+import { View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
 
+import { Icon, TIconTypes } from '@components/icon';
+
+import { COLORS } from '@styles/colors';
 import { TabBarItemStyles } from './tab-bar-item.styles';
 
 interface ITabBarItemProps {
   title: string;
+  icon: TIconTypes;
   isActive?: boolean;
   onPress: () => void;
 }
 
 export const TabBarItem: FC<ITabBarItemProps> = ({
   title,
+  icon,
   isActive,
   onPress,
 }) => {
@@ -20,10 +26,23 @@ export const TabBarItem: FC<ITabBarItemProps> = ({
 
   return (
     <TabBarItemStyles.Wrapper style={{ paddingBottom: bottom }}>
-      <TouchableHighlight underlayColor="#fff" onPress={onPress}>
-        <TabBarItemStyles.Text isCentered isActive={isActive}>
-          {title}
-        </TabBarItemStyles.Text>
+      <TouchableHighlight
+        underlayColor={COLORS.transparent}
+        activeOpacity={1}
+        onPress={onPress}
+      >
+        <View>
+          <TabBarItemStyles.IconWrapper>
+            <Icon
+              type={icon}
+              size={25}
+              color={isActive ? 'primaryBlue' : undefined}
+            />
+          </TabBarItemStyles.IconWrapper>
+          <TabBarItemStyles.Text isCentered isActive={isActive}>
+            {title}
+          </TabBarItemStyles.Text>
+        </View>
       </TouchableHighlight>
     </TabBarItemStyles.Wrapper>
   );
