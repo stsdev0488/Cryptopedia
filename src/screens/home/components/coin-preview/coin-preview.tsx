@@ -1,0 +1,81 @@
+import * as shape from 'd3-shape';
+import React, { FC } from 'react';
+import { Dimensions } from 'react-native';
+import { LineChart } from 'react-native-svg-charts';
+
+import { useCoinPreviewState } from './coin-preview.state';
+
+import { IMAGES } from '@constants/images';
+import { STRINGS } from '@constants/strings';
+import { COLORS } from '@styles/constants';
+
+import { Theme } from '@styles/theme';
+import { CoinPreviewStyles } from './coin-preview.styles';
+
+interface ICoinPeviewProps {
+  name: string;
+  symbol: string;
+  price: string;
+  change: number;
+  image: string;
+}
+
+const COIN_PREVIEW_WRAPPER_PROPORTIONS = 16 / 9;
+
+export const CoinPreview: FC<ICoinPeviewProps> = ({
+  name,
+  symbol,
+  price,
+  change,
+  image,
+}) => {
+  const width = Dimensions.get('window').width * 0.46;
+  const { chartData } = useCoinPreviewState(symbol);
+  const { HOME } = STRINGS;
+
+  return (
+    <CoinPreviewStyles.Wrapper
+      style={{
+        width,
+        height: width / COIN_PREVIEW_WRAPPER_PROPORTIONS,
+      }}
+    >
+      <CoinPreviewStyles.Row>
+        <CoinPreviewStyles.ImageWrapper>
+          <CoinPreviewStyles.Image
+            source={image ? { uri: image } : IMAGES.logo}
+          />
+        </CoinPreviewStyles.ImageWrapper>
+        <Theme.Screen>
+          <Theme.Text fontSize="big" color={COLORS.black}>
+            {name}
+          </Theme.Text>
+          <Theme.Text fontSize="small" color={COLORS.black}>
+            1 {symbol} = {price}
+          </Theme.Text>
+          <Theme.Text
+            fontSize="small"
+            color={change < 0 ? COLORS.red : COLORS.green}
+          >
+            {HOME.change} - ({change.toFixed(2)}%)
+          </Theme.Text>
+          <Theme.Text fontSize="small" color={COLORS.darkGray}>
+            {HOME.change24H}
+          </Theme.Text>
+        </Theme.Screen>
+      </CoinPreviewStyles.Row>
+      <CoinPreviewStyles.Chart>
+        <LineChart
+          data={chartData.map(({ high }) => high)}
+          style={{
+            height: width / (COIN_PREVIEW_WRAPPER_PROPORTIONS * 3),
+            width,
+          }}
+          svg={{ stroke: COLORS.primaryBlue }}
+          contentInset={{ bottom: 10, top: 5 }}
+          curve={shape.curveNatural}
+        />
+      </CoinPreviewStyles.Chart>
+    </CoinPreviewStyles.Wrapper>
+  );
+};

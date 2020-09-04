@@ -1,12 +1,11 @@
-import { TouchableHighlight } from 'react-native-gesture-handler';
-
 import React, { FC } from 'react';
-import { View } from 'react-native';
+import { TouchableHighlight, View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
 
 import { Icon, TIconTypes } from '@components/icon';
 
-import { COLORS } from '@styles/colors';
+import { COLORS } from '@styles/constants';
+
 import { TabBarItemStyles } from './tab-bar-item.styles';
 
 interface ITabBarItemProps {

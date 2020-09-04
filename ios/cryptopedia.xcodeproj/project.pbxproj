@@ -18,6 +18,9 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AE5D94BDC3D2D7B98B7F7093 /* libPods-cryptopedia.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64386A923E7EC20103EA94E1 /* libPods-cryptopedia.a */; };
 		D0236EF2CC823D06357B7127 /* libPods-cryptopedia-cryptopediaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C72EF3BB19B2EB72ED4E4E /* libPods-cryptopedia-cryptopediaTests.a */; };
+		DA02AFD6B8604CC8AC62134B /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = DAAFB387B42042BDA90242FE /* CircularStd-Book.otf */; };
+		4CE02212BBBD4BF696E8907F /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9B4590110AF48FCBD0E8613 /* CircularStd-Medium.otf */; };
+		250A771995CD4AEEA134768C /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 88D2FE555627499ABFB77584 /* Nexa Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F789A8E2E8A63308A344A769 /* Pods-cryptopedia-cryptopediaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptopedia-cryptopediaTests.release.xcconfig"; path = "Target Support Files/Pods-cryptopedia-cryptopediaTests/Pods-cryptopedia-cryptopediaTests.release.xcconfig"; sourceTree = "<group>"; };
+		DAAFB387B42042BDA90242FE /* CircularStd-Book.otf */ = {isa = PBXFileReference; name = "CircularStd-Book.otf"; path = "../src/assets/fonts/CircularStd-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C9B4590110AF48FCBD0E8613 /* CircularStd-Medium.otf */ = {isa = PBXFileReference; name = "CircularStd-Medium.otf"; path = "../src/assets/fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		88D2FE555627499ABFB77584 /* Nexa Bold.otf */ = {isa = PBXFileReference; name = "Nexa Bold.otf"; path = "../src/assets/fonts/Nexa Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBF66FE6B65FD5D400C53455 /* Pods */,
+				6E0E145C574340608E57528C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -181,6 +188,17 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		6E0E145C574340608E57528C /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				DAAFB387B42042BDA90242FE /* CircularStd-Book.otf */,
+				C9B4590110AF48FCBD0E8613 /* CircularStd-Medium.otf */,
+				88D2FE555627499ABFB77584 /* Nexa Bold.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -324,6 +342,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				DA02AFD6B8604CC8AC62134B /* CircularStd-Book.otf in Resources */,
+				4CE02212BBBD4BF696E8907F /* CircularStd-Medium.otf in Resources */,
+				250A771995CD4AEEA134768C /* Nexa Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

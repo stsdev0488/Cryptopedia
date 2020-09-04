@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
 
-import { COLORS } from './colors';
-import { FONT_SIZES } from './font-sizes';
+import { COLORS, FONT_SIZES } from './constants';
 
 interface ICenteredProp {
   isCentered?: boolean;
@@ -9,8 +8,10 @@ interface ICenteredProp {
 interface IColorProp {
   color?: string;
 }
-interface IFontSizeProp {
+interface IFontProps {
   fontSize?: keyof typeof FONT_SIZES;
+  fontWeight?: 'normal' | 'bold' | 'medium';
+  lineHeight?: number;
 }
 
 export const Theme = {
@@ -24,9 +25,22 @@ export const Theme = {
     `}
   `,
 
-  Text: styled.Text<ICenteredProp & IColorProp & IFontSizeProp>`
-    font-size: ${({ fontSize }) => FONT_SIZES[fontSize || 'normal']}
+  Text: styled.Text<ICenteredProp & IColorProp & IFontProps>`
+    font-size: ${({ fontSize }) => FONT_SIZES[fontSize || 'normal']};
     color: ${({ color }) => color || COLORS.primaryGray};
     ${({ isCentered }) => isCentered && 'text-align: center'};
+    ${({ lineHeight }) => lineHeight && `line-height: ${lineHeight}px;`}
+    font-family: ${({ fontWeight }) => {
+      switch (fontWeight) {
+        case 'normal':
+          return 'CircularStd-Book';
+        case 'medium':
+          return 'CircularStd-Medium';
+        case 'bold':
+          return 'Nexa Bold';
+        default:
+          return 'CircularStd-Book';
+      }
+    }}
   `,
 };

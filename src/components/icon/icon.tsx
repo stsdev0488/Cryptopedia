@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 
-import { COLORS } from '@styles/colors';
+import { COLORS } from '@styles/constants';
+
 import { IconStyles } from './icon.styles';
 
+import back from '@assets/back.svg';
+import forward from '@assets/forward.svg';
+import settings from '@assets/home/settings.svg';
 import home from '@assets/menu/home.svg';
 import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
@@ -13,6 +17,11 @@ const ICONS = {
   markets,
   portfolio,
   learn,
+
+  settings,
+
+  back,
+  forward,
 };
 
 export type TIconTypes = keyof typeof ICONS;

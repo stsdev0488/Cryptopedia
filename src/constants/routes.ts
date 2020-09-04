@@ -5,4 +5,5 @@ export const ROUTES = {
   markets: 'Markets',
   portfolio: 'Portfolio',
   detail: 'Detail',
+  settings: 'Settings',
 };

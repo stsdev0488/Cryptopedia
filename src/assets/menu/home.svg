@@ -1,1 +1,19 @@
-<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="home" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M573.48 219.91L310.6 8a35.85 35.85 0 0 0-45.19 0L2.53 219.91a6.71 6.71 0 0 0-1 9.5l14.2 17.5a6.82 6.82 0 0 0 9.6 1L64 216.72V496a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V216.82l38.8 31.29a6.83 6.83 0 0 0 9.6-1l14.19-17.5a7.14 7.14 0 0 0-1.11-9.7zM240 480V320h96v160zm240 0H368V304a16 16 0 0 0-16-16H224a16 16 0 0 0-16 16v176H96V190.92l187.71-151.4a6.63 6.63 0 0 1 8.4 0L480 191z"></path></svg>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+ "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="60.000000pt" height="66.000000pt" viewBox="0 0 60.000000 66.000000"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+<g transform="translate(0.000000,66.000000) scale(0.100000,-0.100000)"
+fill="currentColor" stroke="none">
+<path d="M140 551 l-135 -107 -3 -197 -2 -197 24 -25 25 -25 251 0 251 0 25
+25 24 25 -2 197 -3 197 -135 107 c-90 72 -143 108 -160 108 -17 0 -70 -36
+-160 -108z m289 -66 l111 -87 0 -153 c0 -177 -3 -185 -75 -185 l-44 0 -3 147
+-3 148 -115 0 -115 0 -3 -147 -3 -148 -44 0 c-72 0 -75 8 -75 185 l0 153 117
+92 c64 50 123 88 129 86 7 -3 62 -44 123 -91z m-69 -305 l0 -120 -60 0 -60 0
+0 120 0 120 60 0 60 0 0 -120z"/>
+</g>
+</svg>
