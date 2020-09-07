@@ -5,7 +5,7 @@ import { COLORS } from '@styles/constants';
 export const HeaderStyles = {
   Wrapper: styled.View`
     background-color: ${COLORS.primaryBlue}
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   `,
   RightIconWrapper: styled.View`
     position: absolute;
@@ -19,7 +19,6 @@ export const HeaderStyles = {
   Back: styled.TouchableHighlight`
     position: absolute;
     left: 10px;
-    bottom: 10px;
   `,
   BackContent: styled.View`
     flex-direction: row;

@@ -7,6 +7,7 @@ import { Icon, TIconTypes } from '@components/icon';
 import { IMAGES } from '@constants/images';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
+import { DEFAULT_TOP } from './header.constants';
 
 import { Theme } from '@styles/theme';
 import { HeaderStyles } from './header.styles';
@@ -31,6 +32,7 @@ export const Header: FC<IHeaderProps> = ({
   isLogo,
 }) => {
   const { top } = useSafeArea();
+  const paddingTop = top < DEFAULT_TOP ? DEFAULT_TOP : top;
   const navigation = useNavigation();
 
   const { HEADER } = STRINGS;
@@ -40,7 +42,7 @@ export const Header: FC<IHeaderProps> = ({
   return (
     <HeaderStyles.Wrapper
       style={{
-        paddingTop: top,
+        paddingTop: paddingTop,
         backgroundColor: COLORS[background || 'primaryBlue'],
       }}
     >
@@ -63,15 +65,18 @@ export const Header: FC<IHeaderProps> = ({
           onPress={handleBackPress}
           underlayColor={COLORS.transparent}
           activeOpacity={1}
+          style={{ top: paddingTop }}
         >
           <HeaderStyles.BackContent>
             <Icon size={20} type="back" color={color || 'white'} />
-            <Theme.Text color={COLORS[color || 'white']}>{HEADER.back}</Theme.Text>
+            <Theme.Text color={COLORS[color || 'white']}>
+              {HEADER.back}
+            </Theme.Text>
           </HeaderStyles.BackContent>
         </HeaderStyles.Back>
       )}
       {rightIcon && (
-        <HeaderStyles.RightIconWrapper style={{ height: top + 3 }}>
+        <HeaderStyles.RightIconWrapper style={{ height: paddingTop + 5 }}>
           <HeaderStyles.RightIcon
             underlayColor={COLORS.transparent}
             onPress={rightIconHandler}

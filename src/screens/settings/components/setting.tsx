@@ -22,7 +22,7 @@ export const Setting: FC<ISettingProps> = ({ title, link, isLast }) => {
     <View>
       <SettingsStyles.Touchable onPress={handlePress} isBorder={isLast}>
         <SettingsStyles.Row>
-          <Theme.Text fontSize="big" color={COLORS.black}>
+          <Theme.Text fontSize="big" color={COLORS.black} numberOfLines={1}>
             {title}
           </Theme.Text>
           <Icon size={15} type="forward" color="darkGray" />
