@@ -4,9 +4,9 @@ import { API } from '@typings/api.d';
 
 const PRO_KEY = 'b3f91bce-eee4-4427-87e9-6f6950c294da';
 
-export const getCoins = async (count: number) => {
+export const getCoins = async (count: number, start?: number) => {
   const result = await apiCall(API.pro, 'get_coins')(
-    { limit: count },
+    { limit: count, start: start || 1 },
     {
       'X-CMC_PRO_API_KEY': PRO_KEY,
     }

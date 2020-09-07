@@ -36,4 +36,11 @@ export const STRINGS = {
     settings: 'SETTINGS',
     title: 'Settings',
   },
+  ALL_COINS: {
+    index: '#',
+    name: 'NAME',
+    price: 'PRICE',
+    change: 'CHANGE',
+    cap: 'M.CAP',
+  },
 };

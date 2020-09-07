@@ -6,8 +6,8 @@ import Carousel from 'react-native-snap-carousel';
 import { Button } from '@components/button';
 import { CoinPreview } from '../coin-preview';
 
+import { getChange, getPrice } from '@services/utils';
 import { useCoinHeaderState } from './coin-header.state';
-import { getChange, getPrice } from './coin-header.utils';
 
 import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
@@ -17,7 +17,7 @@ import { IRenderItemProps } from './coin-header.typings';
 import { CoinHeaderStyles } from './coin-header.styles';
 
 export const CoinHeader = () => {
-  const { data = [] } = useCoinHeaderState();
+  const { data } = useCoinHeaderState();
   const { HOME } = STRINGS;
   const windowWidth = Dimensions.get('window').width;
   const { navigate } = useNavigation();

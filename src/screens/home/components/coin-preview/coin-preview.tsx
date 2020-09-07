@@ -17,7 +17,7 @@ interface ICoinPeviewProps {
   symbol: string;
   price: string;
   change: number;
-  image: string;
+  image?: string;
 }
 
 const COIN_PREVIEW_WRAPPER_PROPORTIONS = 16 / 9;

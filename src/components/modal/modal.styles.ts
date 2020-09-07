@@ -14,7 +14,7 @@ export const ModalStyles = {
     bottom: 0;
     justify-content: center;
     align-items: center;
-    ${PLATFORM.isIOS && `background-color: ${COLORS.blackTint}`}
+    ${!PLATFORM.isIOS && `background-color: ${COLORS.blackTint}`}
   `,
   Content: styled.View`
     background-color: ${COLORS.white};

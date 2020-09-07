@@ -7,6 +7,8 @@ export const COLORS = {
   red: '#FB0C1B',
   green: '#3A9857',
 
+  paper: '#F0F6FC',
+
   border: '#B1B2B3',
   lightBorder: '#C5C6C8',
 

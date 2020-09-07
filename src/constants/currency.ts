@@ -7,3 +7,5 @@ export const CURRENCY_SYMBOLS = {
   JPY: '¥',
   USD: '$',
 };
+
+export const CAP_PREFIXES = ['B', 'M', 'K', ''];

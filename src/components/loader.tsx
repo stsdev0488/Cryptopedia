@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 import { usePromiseTracker } from 'react-promise-tracker';
 import styled from 'styled-components/native';
 
+import { Spinner } from './spinner';
+
 import { COLORS, Z_INDEXES } from '@styles/constants';
 
 import { Theme } from '@styles/theme';
@@ -17,9 +19,7 @@ export const Loader = () => {
 
   return promiseInProgress ? (
     <Wrapper isCentered style={StyleSheet.absoluteFillObject}>
-      <Theme.Text color={COLORS.white} fontSize="title">
-        Loading...
-      </Theme.Text>
+      <Spinner />
     </Wrapper>
   ) : null;
 };

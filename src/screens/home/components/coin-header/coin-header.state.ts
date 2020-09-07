@@ -2,7 +2,7 @@
 
 import { getCoinList, getCoins } from '@services/api';
 import { usePromice } from '@services/hooks';
-import { getImages } from './coin-header.utils';
+import { getImages } from '@services/utils';
 
 import { IData } from './coin-header.typings';
 

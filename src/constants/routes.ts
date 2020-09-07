@@ -6,4 +6,7 @@ export const ROUTES = {
   portfolio: 'Portfolio',
   detail: 'Detail',
   settings: 'Settings',
+  allCoins: 'All Coins',
+  defi: 'DeFi Dashboard',
+  favorites: 'Favorites',
 };

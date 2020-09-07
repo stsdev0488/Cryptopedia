@@ -5,5 +5,5 @@ export interface IRenderItemProps {
 }
 
 export interface IData extends ICoinData {
-  image: string;
+  image?: string;
 }

@@ -19,6 +19,7 @@ export interface INewData {
 interface IQuoteData {
   price: number;
   percent_change_24h: number;
+  market_cap: number;
 }
 
 export interface ICoinData {
@@ -70,6 +71,7 @@ interface IGetNewsParameters {
 
 interface IGetCoinsParameters {
   limit?: number;
+  start?: number;
   covert?: TCurrency;
 }
 

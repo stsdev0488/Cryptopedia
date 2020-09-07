@@ -15,13 +15,16 @@ interface IFontProps {
 }
 
 export const Theme = {
-  Screen: styled.View<ICenteredProp>`
+  Screen: styled.View<ICenteredProp & IColorProp>`
     flex: 1;
     ${({ isCentered }) =>
       isCentered &&
       `
       justify-content: center;
       align-items: center;
+    `}
+    ${({ color }) => `
+      background-color: ${color}
     `}
   `,
 
