@@ -12,14 +12,6 @@ import { Theme } from '@styles/theme';
 import { SettingsStyles } from './settings.styles';
 
 export const Settings = () => {
-  const settingsList = SETTINGS.map((props, index) => (
-    <Setting
-      key={props.title}
-      {...props}
-      isLast={index === SETTINGS.length - 1}
-    />
-  ));
-
   const { SETTINGS: SETTINGS_STRINGS } = STRINGS;
 
   return (
@@ -44,7 +36,13 @@ export const Settings = () => {
             {SETTINGS_STRINGS.settings}
           </SettingsStyles.Title>
         </SettingsStyles.TitleWrapper>
-        {settingsList}
+        {SETTINGS.map((props, index) => (
+          <Setting
+            key={props.title}
+            {...props}
+            isLast={index === SETTINGS.length - 1}
+          />
+        ))}
       </SettingsStyles.Wrapper>
     </Theme.Screen>
   );

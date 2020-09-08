@@ -56,21 +56,50 @@ export const getCap = (item: ICoinData) => {
     )[0] || CURRENCY_SYMBOLS.USD;
 
   const cap = result[0] || 0;
+
+  const shortCap = getShortNumber(cap);
+
+  if (shortCap) {
+    return `${symbol}${shortCap}`;
+  }
+  return '-';
+};
+
+export const getVolume = (item: ICoinData) => {
+  const { quote } = item;
+
+  const result = Object.values(quote).map((value) => value?.volume_24h);
+
+  const symbol =
+    Object.keys(quote).map(
+      (key) => CURRENCY_SYMBOLS[key as keyof typeof CURRENCY_SYMBOLS]
+    )[0] || CURRENCY_SYMBOLS.USD;
+
+  const volume = result[0] || 0;
+
+  const shortVolume = getShortNumber(volume);
+
+  if (shortVolume) {
+    return `${symbol}${shortVolume}`;
+  }
+  return '-';
+};
+
+const getShortNumber = (cap: number) => {
   const b_cap = cap / 10 ** 9;
   const m_cap = cap / 10 ** 6;
   const k_cap = cap / 10 ** 3;
 
   if (b_cap > 1) {
-    return `${symbol}${b_cap.toFixed(2)}${CAP_PREFIXES[0]}`;
+    return `${b_cap.toFixed(2)}${CAP_PREFIXES[0]}`;
   }
   if (m_cap > 1) {
-    return `${symbol}${m_cap.toFixed(2)}${CAP_PREFIXES[1]}`;
+    return `${m_cap.toFixed(2)}${CAP_PREFIXES[1]}`;
   }
   if (k_cap > 1) {
-    return `${symbol}${k_cap.toFixed(2)}${CAP_PREFIXES[2]}`;
+    return `${k_cap.toFixed(2)}${CAP_PREFIXES[2]}`;
   }
   if (cap > 0) {
-    return `${symbol}${cap.toFixed(2)}${CAP_PREFIXES[3]}`;
+    return `${cap.toFixed(2)}${CAP_PREFIXES[3]}`;
   }
-  return '-';
 };

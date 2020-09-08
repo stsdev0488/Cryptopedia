@@ -12,21 +12,17 @@ export const TabBar = () => {
   const { navigate } = useNavigation();
   const currentRoute = getCurrentRoute();
 
-  const tabList = TABS.map(({ key, icon }) => {
-    return (
-      <TabBarItem
-        key={key}
-        title={key}
-        icon={icon}
-        isActive={key === currentRoute}
-        onPress={() => navigate(key)}
-      />
-    );
-  });
-
   return (
     <TabBarStyles.Wrapper>
-      {tabList}
+      {TABS.map(({ key, icon, keyTabs }) => (
+        <TabBarItem
+          key={key}
+          title={key}
+          icon={icon}
+          isActive={keyTabs.includes(currentRoute)}
+          onPress={() => navigate(key)}
+        />
+      ))}
     </TabBarStyles.Wrapper>
   );
 };

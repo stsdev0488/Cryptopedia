@@ -12,17 +12,19 @@ import { SubHeaderStyles } from './sub-header.styles';
 export const SubHeader: FC<ITabBarProps> = ({ navigationState, jumpTo }) => {
   const { index: activeRouteIndex } = navigationState;
 
-  const tabList = navigationState.routes.map(({ key }, index) => {
-    const handlePress = () => jumpTo(MARKETS_ROUTES[index].key);
-    return (
-      <SubHeaderItem
-        key={key}
-        title={ROUTES[key]}
-        isActive={index === activeRouteIndex}
-        onPress={handlePress}
-      />
-    );
-  });
-
-  return <SubHeaderStyles.Wrapper>{tabList}</SubHeaderStyles.Wrapper>;
+  return (
+    <SubHeaderStyles.Wrapper>
+      {navigationState.routes.map(({ key }, index) => {
+        const handlePress = () => jumpTo(MARKETS_ROUTES[index].key);
+        return (
+          <SubHeaderItem
+            key={key}
+            title={ROUTES[key]}
+            isActive={index === activeRouteIndex}
+            onPress={handlePress}
+          />
+        );
+      })}
+    </SubHeaderStyles.Wrapper>
+  );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const usePromice = <T extends any>(promice: () => Promise<T>) => {
+export const usePromise = <T extends any>(promice: () => Promise<T>) => {
   const [response, setResponse] = useState<T>();
   const [isLoading, setIsLoading] = useState(false);
 

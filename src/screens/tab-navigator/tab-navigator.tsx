@@ -3,9 +3,9 @@ import React from 'react';
 
 import { ModalWrapper } from '@components/modal';
 import { TabBar } from '@components/tab-bar';
-import { Home } from '@screens/home';
+import { HomeRouter } from '@screens/home';
 import { Learn } from '@screens/learn';
-import { Markets } from '@screens/markets';
+import { MarketsScreenRouter } from '@screens/markets';
 import { Portfolio } from '@screens/portfolio';
 
 import { ROUTES } from '@constants/routes';
@@ -23,8 +23,8 @@ export const TabNavigator = () => (
         gestureEnabled: false,
       }}
     >
-      <Stack.Screen name={ROUTES.home} component={Home} />
-      <Stack.Screen name={ROUTES.markets} component={Markets} />
+      <Stack.Screen name={ROUTES.homeRouter} component={HomeRouter} />
+      <Stack.Screen name={ROUTES.markets} component={MarketsScreenRouter} />
       <Stack.Screen name={ROUTES.portfolio} component={Portfolio} />
       <Stack.Screen name={ROUTES.learn} component={Learn} />
     </Stack.Navigator>

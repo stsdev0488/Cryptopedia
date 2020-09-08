@@ -20,6 +20,7 @@ interface IQuoteData {
   price: number;
   percent_change_24h: number;
   market_cap: number;
+  volume_24h: number;
 }
 
 export interface ICoinData {
@@ -66,7 +67,7 @@ interface IGetSnapshotReturn {
 }
 
 interface IGetNewsParameters {
-  limit?: number;
+  categories?: string;
 }
 
 interface IGetCoinsParameters {

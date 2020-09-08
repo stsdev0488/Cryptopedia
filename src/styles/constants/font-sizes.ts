@@ -3,4 +3,5 @@ export const FONT_SIZES = {
   normal: '12px',
   big: '14px',
   title: '16px',
+  bigTitle: '24px',
 };

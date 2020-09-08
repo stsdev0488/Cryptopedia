@@ -1,3 +1,4 @@
+import { Linking } from 'react-native';
 import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 export const openLink = async (link: string) => {
@@ -11,4 +12,12 @@ export const openLink = async (link: string) => {
   InAppBrowser.open(link, {
     dismissButtonStyle: 'close',
   });
+};
+
+export const openBrowser = async (link: string) => {
+  const supported = await Linking.canOpenURL(link);
+
+  if (supported) {
+    await Linking.openURL(link);
+  }
 };

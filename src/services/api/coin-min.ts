@@ -1,9 +1,12 @@
 import { apiCall } from './http';
 
-import { API, TCurrency } from '@typings/api.d';
+import { API, IGetNewsParameters, TCurrency } from '@typings/api.d';
 
-export const getNews = async () => {
-  const result = await apiCall(API.min, 'get_news')();
+export const getNews = async (props: IGetNewsParameters = {}) => {
+  const result = await apiCall(
+    API.min,
+    'get_news'
+  )({ categories: props.categories });
 
   if (result) {
     return result.Data;

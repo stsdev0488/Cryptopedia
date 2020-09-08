@@ -1,8 +1,13 @@
 import styled from 'styled-components/native';
 
+interface IRoundedProp {
+  isRounded?: boolean;
+}
+
 export const ButtonStyles = {
-  Wrapper: styled.View`
-    border-radius: 15px;
+  Wrapper: styled.View<IRoundedProp>`
+    ${({ isRounded }) =>
+      isRounded ? 'border-radius: 15px' : 'border-radius: 5px'};
     height: 30px;
     width: 100%;
     overflow: hidden;

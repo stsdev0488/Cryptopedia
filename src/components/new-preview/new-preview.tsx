@@ -6,9 +6,9 @@ import { openLink } from '@services/utils';
 import { COLORS } from '@styles/constants';
 
 import { Theme } from '@styles/theme';
-import { NewsItemStyles } from '../news-list.styles';
+import { NewPreviewStyles } from './new-preview.styles';
 
-interface INewsItemProps {
+interface INewPreviewProps {
   title?: string;
   body?: string;
   url?: string;
@@ -16,7 +16,7 @@ interface INewsItemProps {
   web?: string;
 }
 
-export const NewsItem: FC<INewsItemProps> = ({
+export const NewPreview: FC<INewPreviewProps> = ({
   title,
   body,
   imageurl,
@@ -35,7 +35,7 @@ export const NewsItem: FC<INewsItemProps> = ({
       activeOpacity={1}
       onPress={handlePress}
     >
-      <NewsItemStyles.Wrapper>
+      <NewPreviewStyles.Wrapper>
         <Theme.Screen>
           <Theme.Text
             fontSize="big"
@@ -45,19 +45,19 @@ export const NewsItem: FC<INewsItemProps> = ({
           >
             {title}
           </Theme.Text>
-          <NewsItemStyles.Description
+          <NewPreviewStyles.Description
             color={COLORS.lightGray}
             numberOfLines={2}
           >
             {body}
-          </NewsItemStyles.Description>
+          </NewPreviewStyles.Description>
           <Theme.Text color={COLORS.lightGray}>{web}</Theme.Text>
         </Theme.Screen>
-        <NewsItemStyles.ImageWrapper>
-          <NewsItemStyles.Image source={{ uri: imageurl }} />
-        </NewsItemStyles.ImageWrapper>
-        <NewsItemStyles.Border />
-      </NewsItemStyles.Wrapper>
+        <NewPreviewStyles.ImageWrapper>
+          <NewPreviewStyles.Image source={{ uri: imageurl }} />
+        </NewPreviewStyles.ImageWrapper>
+        <NewPreviewStyles.Border />
+      </NewPreviewStyles.Wrapper>
     </TouchableHighlight>
   );
 };

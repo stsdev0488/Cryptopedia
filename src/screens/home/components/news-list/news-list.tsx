@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
+import { NewPreview } from '@components/new-preview';
 import { CoinHeader } from '../coin-header';
-import { NewsItem, NewsListHeader } from './components';
+import { NewsListHeader } from './components';
 
 import { useNewsListState } from './news-list.state';
 
@@ -12,15 +13,13 @@ export const NewsList = () => {
   const { HOME } = STRINGS;
   const { data } = useNewsListState();
 
-  const newsList = data.map((item) => (
-    <NewsItem key={item.id} {...item} web={item.source_info.name} />
-  ));
-
   return (
     <ScrollView stickyHeaderIndices={[1]} bounces={false}>
       <CoinHeader />
       <NewsListHeader title={HOME.news} />
-      {newsList}
+      {data.map((item) => (
+        <NewPreview key={item.id} {...item} web={item.source_info.name} />
+      ))}
     </ScrollView>
   );
 };

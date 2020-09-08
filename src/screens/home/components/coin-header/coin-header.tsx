@@ -6,7 +6,7 @@ import Carousel from 'react-native-snap-carousel';
 import { Button } from '@components/button';
 import { CoinPreview } from '../coin-preview';
 
-import { getChange, getPrice } from '@services/utils';
+import { getCap, getChange, getPrice, getVolume } from '@services/utils';
 import { useCoinHeaderState } from './coin-header.state';
 
 import { ROUTES } from '@constants/routes';
@@ -34,6 +34,8 @@ export const CoinHeader = () => {
           price={getPrice(left)}
           change={getChange(left)}
           image={left.image}
+          cap={getCap(left)}
+          volume={getVolume(left)}
         />
         <CoinPreview
           name={right.name}
@@ -41,6 +43,8 @@ export const CoinHeader = () => {
           price={getPrice(right)}
           change={getChange(right)}
           image={right.image}
+          cap={getCap(right)}
+          volume={getVolume(right)}
         />
       </CoinHeaderStyles.CoinWrapper>
     );
@@ -53,6 +57,7 @@ export const CoinHeader = () => {
           title={HOME.tapToLearn}
           onPress={handleLearnPress}
           color="whiteTint"
+          isRounded
         />
       </CoinHeaderStyles.ButtonWrapper>
       <CoinHeaderStyles.CarouselWrapper>
