@@ -9,3 +9,7 @@ export interface IRouterRoute {
 export interface ITabBarProps extends SceneRendererProps {
   navigationState: NavigationState<IRouterRoute>;
 }
+
+export interface ITabBarNavigationProps extends ITabBarProps {
+  routes: IRouterRoute[];
+}

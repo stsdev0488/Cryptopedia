@@ -3,16 +3,16 @@ import { TabView } from 'react-native-tab-view';
 
 import { SubHeader } from '@components/sub-header';
 
-import { useMarketsRouterState } from './router.state';
+import { useLearnRouterState } from './router.state';
 
-import { MARKETS_ROUTES } from './router.constants';
+import { LEARN_ROUTES } from './router.constants';
 
 import { ITabBarProps } from '@typings/router.d';
 
-export const MarketsRouter = () => {
-  const { index, routes, renderScene, setIndex } = useMarketsRouterState();
+export const LearnRouter = () => {
+  const { index, routes, renderScene, setIndex } = useLearnRouterState();
 
-  const renderTabBar = (props: ITabBarProps) => <SubHeader {...props} routes={MARKETS_ROUTES} />;
+  const renderTabBar = (props: ITabBarProps) => <SubHeader {...props} routes={LEARN_ROUTES} />;
 
   return (
     <TabView

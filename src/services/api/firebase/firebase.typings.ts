@@ -1,11 +1,9 @@
-import database from '@react-native-firebase/database';
-
 interface ILink {
   displayText: string;
   url: string;
 }
 
-interface ICoinSnapshotData {
+export interface ICoinSnapshotData {
   about?: string;
   paperUrl?: string;
   creator?: string;
@@ -21,12 +19,19 @@ interface ICoinSnapshotData {
   };
 }
 
-export const getCoinSnapshotBySymbol = async (
-  symbol: string
-): Promise<ICoinSnapshotData | null> => {
-  const snapshot = await database()
-    .ref(`/coinsnapshot/${symbol.toLowerCase()}`)
-    .once('value');
+interface IVideo {
+    description: string;
+    imageurl: string;
+    title: string;
+    videourl: string;
+}
 
-  return snapshot.val();
-};
+
+export interface ICourseData {
+  description: string;
+  imageurl: string;
+  title: string;
+  videos: {
+    [key: string]: IVideo;
+  };
+}

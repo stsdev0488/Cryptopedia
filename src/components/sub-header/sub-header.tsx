@@ -1,21 +1,20 @@
 import React, { FC } from 'react';
 
-import { SubHeaderItem } from './components/sub-header-item';
+import { SubHeaderItem } from './components';
 
 import { ROUTES } from '@constants/routes';
-import { MARKETS_ROUTES } from '../router/router.constants';
 
-import { ITabBarProps } from '../router/router.typings';
+import { ITabBarNavigationProps } from '@typings/router.d';
 
 import { SubHeaderStyles } from './sub-header.styles';
 
-export const SubHeader: FC<ITabBarProps> = ({ navigationState, jumpTo }) => {
+export const SubHeader: FC<ITabBarNavigationProps> = ({ navigationState, jumpTo, routes }) => {
   const { index: activeRouteIndex } = navigationState;
 
   return (
     <SubHeaderStyles.Wrapper>
       {navigationState.routes.map(({ key }, index) => {
-        const handlePress = () => jumpTo(MARKETS_ROUTES[index].key);
+        const handlePress = () => jumpTo(routes[index].key);
         return (
           <SubHeaderItem
             key={key}

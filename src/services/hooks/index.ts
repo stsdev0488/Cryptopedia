@@ -1,1 +1,1 @@
-export * from './use-promice';
+export * from './use-promise';

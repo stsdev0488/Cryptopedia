@@ -15,6 +15,8 @@ export const COLORS = {
   lightGray: '#A1ABB8',
   primaryGray: '#98999A',
   solidGray: '#7F8081',
+  grayTitle: '#54595C',
+  grayButton: '#D4D5D6',
   darkGray: '#6C6D71',
   primaryBlue: '#0F5AF1',
 };

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TouchableHighlight } from 'react-native';
+import styled from 'styled-components/native';
 
 import { COLORS } from '@styles/constants';
 
@@ -11,17 +11,22 @@ interface ISubHeaderItemProps {
   onPress?: () => void;
 }
 
+const Touchable = styled.TouchableHighlight`
+  width: 30%;
+`;
+
 export const SubHeaderItem: FC<ISubHeaderItemProps> = ({
   title,
   isActive,
   onPress,
 }) => (
-  <TouchableHighlight underlayColor={COLORS.transparent} onPress={onPress}>
+  <Touchable underlayColor={COLORS.transparent} onPress={onPress}>
     <Theme.Text
       color={isActive ? COLORS.primaryBlue : COLORS.black}
       fontSize="big"
+      isCentered
     >
       {title}
     </Theme.Text>
-  </TouchableHighlight>
+  </Touchable>
 );

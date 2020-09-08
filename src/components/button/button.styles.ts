@@ -3,13 +3,16 @@ import styled from 'styled-components/native';
 interface IRoundedProp {
   isRounded?: boolean;
 }
+interface ISmallProp {
+  isSmall?: boolean;
+}
 
 export const ButtonStyles = {
-  Wrapper: styled.View<IRoundedProp>`
+  Wrapper: styled.View<IRoundedProp & ISmallProp>`
     ${({ isRounded }) =>
       isRounded ? 'border-radius: 15px' : 'border-radius: 5px'};
-    height: 30px;
-    width: 100%;
+    ${({ isSmall }) =>
+      isSmall ? 'height: 20px; width: auto; padding: 0 5px;' : 'height: 30px; width: 100%;'}
     overflow: hidden;
   `,
   Touchable: styled.TouchableHighlight`

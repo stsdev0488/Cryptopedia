@@ -38,6 +38,10 @@ export const STRINGS = {
   },
   LEARN: {
     title: 'Learn',
+    getStarted: 'Get Started',
+    moreCourses: 'More Courses',
+    education: 'Corporate education?',
+    titleEducation: 'Everything you need to begin your jounery into crypto',
   },
   MARKETS: {
     title: 'Markets',

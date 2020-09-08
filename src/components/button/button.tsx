@@ -9,7 +9,9 @@ interface IButtonProps {
   title: string;
   onPress: () => void;
   color?: keyof typeof COLORS;
+  textColor?: keyof typeof COLORS;
   isRounded?: boolean;
+  isSmall?: boolean;
   fontSize?: keyof typeof FONT_SIZES;
 }
 
@@ -19,9 +21,12 @@ export const Button: FC<IButtonProps> = ({
   color,
   isRounded,
   fontSize,
+  textColor,
+  isSmall,
 }) => (
   <ButtonStyles.Wrapper
     isRounded={isRounded}
+    isSmall={isSmall}
     style={{ backgroundColor: COLORS[color || 'transparent'] }}
   >
     <ButtonStyles.Touchable
@@ -29,7 +34,11 @@ export const Button: FC<IButtonProps> = ({
       activeOpacity={0.4}
       underlayColor={COLORS.transparent}
     >
-      <Theme.Text fontWeight="medium" fontSize={fontSize} color={COLORS.white}>
+      <Theme.Text
+        fontWeight={isSmall ? 'normal' : 'medium'}
+        fontSize={fontSize}
+        color={COLORS[textColor || 'white']}
+      >
         {title}
       </Theme.Text>
     </ButtonStyles.Touchable>

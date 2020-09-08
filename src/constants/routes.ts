@@ -13,6 +13,10 @@ export const ROUTES = {
   detailNews: 'Detail News',
 
   learn: 'Learn',
+  courses: 'Courses',
+  dictionary: 'Dictionary',
+  resources: 'Resources',
+
   portfolio: 'Portfolio',
   allCoins: 'All Coins',
   defi: 'DeFi Dashboard',
