@@ -85,7 +85,9 @@ export const CoinPreview: FC<ICoinPeviewProps> = ({
         </CoinPreviewStyles.Row>
         <CoinPreviewStyles.Chart>
           <LineChart
-            data={chartData.map(({ high }) => high)}
+            data={
+              Array.isArray(chartData) ? chartData.map(({ high }) => high) : []
+            }
             style={{
               height: width / (COIN_PREVIEW_WRAPPER_PROPORTIONS * 3),
               width,

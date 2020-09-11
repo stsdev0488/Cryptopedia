@@ -1,7 +1,7 @@
 import database from '@react-native-firebase/database';
 
 import {
-  ICoinSnapshotData, ICourseData, ISnapshotElement, IVideo
+  ICoinSnapshotData, ICourseData, IDictinaryItem, ISnapshotElement, IVideo
 } from './firebase.typings';
 
 export const getCoinSnapshotBySymbol = async (
@@ -38,4 +38,16 @@ export const getCourseVideos = async (course: string): Promise<IVideo[]> => {
   });
 
   return videos;
+};
+
+export const getDictionary = async (): Promise<IDictinaryItem[]> => {
+  const snapshot = await database().ref('/dictionary').once('value');
+
+  const dictionary = <IDictinaryItem[]>[];
+
+  snapshot.forEach((el: ISnapshotElement<IDictinaryItem>) => {
+    dictionary.push(el.val());
+  });
+
+  return dictionary;
 };

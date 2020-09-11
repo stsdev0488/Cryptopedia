@@ -42,6 +42,7 @@ export const STRINGS = {
     moreCourses: 'More Courses',
     education: 'Corporate education?',
     titleEducation: 'Everything you need to begin your jounery into crypto',
+    search: 'Search...',
   },
   MARKETS: {
     title: 'Markets',

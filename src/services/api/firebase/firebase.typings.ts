@@ -37,3 +37,9 @@ export interface ISnapshotElement<T> {
   val: () => T;
   key: string;
 }
+
+export interface IDictinaryItem {
+  definitions: string;
+  term: string;
+  youtubeLink: string;
+}

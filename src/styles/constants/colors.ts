@@ -8,6 +8,7 @@ export const COLORS = {
   green: '#3A9857',
 
   paper: '#F0F6FC',
+  darkPaper: '#EDEEF0',
 
   border: '#B1B2B3',
   lightBorder: '#C5C6C8',
@@ -17,6 +18,7 @@ export const COLORS = {
   solidGray: '#7F8081',
   grayTitle: '#54595C',
   grayButton: '#D4D5D6',
+  grayPlaceholder: '#8D8E91',
   darkGray: '#6C6D71',
   primaryBlue: '#0F5AF1',
   lightBlue: '#7BBEFD',

@@ -5,6 +5,7 @@ import { COLORS } from '@styles/constants';
 import { IconStyles } from './icon.styles';
 
 import back from '@assets/back.svg';
+import close from '@assets/close.svg';
 import forward from '@assets/forward.svg';
 import settings from '@assets/home/settings.svg';
 import videoBars from '@assets/learn/video-bars.svg';
@@ -12,6 +13,7 @@ import home from '@assets/menu/home.svg';
 import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
 import portfolio from '@assets/menu/portfolio.svg';
+import search from '@assets/search.svg';
 
 const ICONS = {
   home,
@@ -23,6 +25,8 @@ const ICONS = {
 
   back,
   forward,
+  search,
+  close,
 
   videoBars,
 };
