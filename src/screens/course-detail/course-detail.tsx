@@ -2,6 +2,7 @@ import React, { FC, useRef } from 'react';
 import { ScrollView } from 'react-native';
 
 import { Header } from '@components/header';
+import { Video } from '@components/video';
 import { CourseInfo, CourseItem } from './components';
 
 import { useCourseDetailState } from './course-detail.state';
@@ -21,6 +22,7 @@ export const CourseDetail: FC<ICourseDetailProps> = ({ route }) => {
   return (
     <Theme.Screen>
       <Header title={title} isBack background="white" color="black" />
+      <Video url={activeVideo?.videourl || ''} />
       <CourseDetailStyles.Wrapper ref={scroll}>
         <CourseInfo
           title={activeVideo?.title}
