@@ -14,6 +14,7 @@ export const ROUTES = {
 
   learn: 'Learn',
   courses: 'Courses',
+  courseDetail: 'Course Detail',
   dictionary: 'Dictionary',
   resources: 'Resources',
 

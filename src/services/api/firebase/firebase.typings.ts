@@ -19,19 +19,21 @@ export interface ICoinSnapshotData {
   };
 }
 
-interface IVideo {
-    description: string;
-    imageurl: string;
-    title: string;
-    videourl: string;
+export interface IVideo {
+  description: string;
+  imageurl: string;
+  title: string;
+  videourl: string;
 }
-
 
 export interface ICourseData {
   description: string;
   imageurl: string;
   title: string;
-  videos: {
-    [key: string]: IVideo;
-  };
+  key: string;
+}
+
+export interface ISnapshotElement<T> {
+  val: () => T;
+  key: string;
 }

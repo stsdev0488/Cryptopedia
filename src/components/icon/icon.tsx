@@ -7,6 +7,7 @@ import { IconStyles } from './icon.styles';
 import back from '@assets/back.svg';
 import forward from '@assets/forward.svg';
 import settings from '@assets/home/settings.svg';
+import videoBars from '@assets/learn/video-bars.svg';
 import home from '@assets/menu/home.svg';
 import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
@@ -22,6 +23,8 @@ const ICONS = {
 
   back,
   forward,
+
+  videoBars,
 };
 
 export type TIconTypes = keyof typeof ICONS;

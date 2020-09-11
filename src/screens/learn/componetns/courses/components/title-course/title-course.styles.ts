@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import { COLORS, MIXINS } from '@styles/constants';
 
 export const TitleCourseStyles = {
-  Wrapper: styled.View`
+  Wrapper: styled.TouchableHighlight`
     width: 100%;
     height: ${Dimensions.get('window').width * 0.5}px;
     ${MIXINS.shadow}

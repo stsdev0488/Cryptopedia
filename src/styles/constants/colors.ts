@@ -19,4 +19,5 @@ export const COLORS = {
   grayButton: '#D4D5D6',
   darkGray: '#6C6D71',
   primaryBlue: '#0F5AF1',
+  lightBlue: '#7BBEFD',
 };

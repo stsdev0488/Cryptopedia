@@ -34,7 +34,13 @@ export const Courses = () => {
           >
             {LEARN.getStarted}
           </Theme.Text>
-          {titleCourse && <TitleCourse image={titleCourse.imageurl} />}
+          {titleCourse && (
+            <TitleCourse
+              image={titleCourse.imageurl}
+              course={titleCourse.key}
+              title={titleCourse.title}
+            />
+          )}
           <CoursesStyles.TitleRow>
             <Theme.Text
               fontSize="title"
@@ -51,12 +57,13 @@ export const Courses = () => {
               onPress={handleEducationPress}
             />
           </CoursesStyles.TitleRow>
-          {data.slice(1).map(({ imageurl, title, description }) => (
+          {data.slice(1).map(({ imageurl, title, description, key }) => (
             <CourseItem
-              key={title}
+              key={key}
               image={imageurl}
               title={title}
               desc={description}
+              course={key}
             />
           ))}
         </CoursesStyles.Content>

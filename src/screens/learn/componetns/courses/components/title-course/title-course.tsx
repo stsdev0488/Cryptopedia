@@ -1,5 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
 
+import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
 
@@ -8,11 +10,20 @@ import { TitleCourseStyles } from './title-course.styles';
 
 interface ITitleCourseProps {
   image: string;
+  course: string;
+  title: string;
 }
 
-export const TitleCourse: FC<ITitleCourseProps> = ({ image }) => {
+export const TitleCourse: FC<ITitleCourseProps> = ({ image, course, title }) => {
+  const { navigate } = useNavigation();
+
+  const handlePress = () => navigate(ROUTES.courseDetail, { course, title });
+
   return (
-    <TitleCourseStyles.Wrapper>
+    <TitleCourseStyles.Wrapper
+      underlayColor={COLORS.transparent}
+      onPress={handlePress}
+    >
       <TitleCourseStyles.Content>
         <TitleCourseStyles.Image
           resizeMode="stretch"

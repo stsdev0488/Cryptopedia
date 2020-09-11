@@ -1,1 +1,1 @@
-export * from './learn';
+export * from './learn.router';
