@@ -4,14 +4,14 @@ import { ScrollView } from 'react-native';
 import { Coin, Header } from './components';
 
 import { getCap, getChange, getPrice, getVolume } from '@services/utils';
-import { useAllCoinsState } from './all-coins.state';
+import { useCoinsState } from './coins.state';
 
 import { COLORS } from '@styles/constants';
 
 import { Theme } from '@styles/theme';
 
-export const AllCoins = () => {
-  const { data } = useAllCoinsState();
+export const Coins = () => {
+  const { data } = useCoinsState();
 
   return (
     <Theme.Screen color={COLORS.white}>

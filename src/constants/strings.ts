@@ -46,6 +46,8 @@ export const STRINGS = {
   },
   MARKETS: {
     title: 'Markets',
+    noFav: 'No Favorites.',
+    addFav: 'Add it from Market Detail Screen.',
   },
   PORTFOLIO: {
     title: 'Portfolio',

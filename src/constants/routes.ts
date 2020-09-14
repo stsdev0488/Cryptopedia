@@ -20,7 +20,7 @@ export const ROUTES = {
   resources: 'Resources',
 
   portfolio: 'Portfolio',
-  allCoins: 'All Coins',
+  coins: 'All Coins',
   defi: 'DeFi Dashboard',
   favorites: 'Favorites',
 };

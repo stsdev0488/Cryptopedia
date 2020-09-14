@@ -14,6 +14,8 @@ import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
 import portfolio from '@assets/menu/portfolio.svg';
 import search from '@assets/search.svg';
+import starActive from '@assets/star-active.svg';
+import star from '@assets/star.svg';
 
 const ICONS = {
   home,
@@ -27,6 +29,8 @@ const ICONS = {
   forward,
   search,
   close,
+  star,
+  starActive,
 
   videoBars,
 };

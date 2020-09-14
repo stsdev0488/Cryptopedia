@@ -9,6 +9,8 @@ import { ModalContextProvider } from '@components/modal/modal-context';
 import { AppNavigator } from './app.navigator';
 import { AppRouter } from './app.router';
 
+import { ReduxProvider } from '@services/redux';
+
 import { Theme } from '@styles/theme';
 
 if (Text.defaultProps == null) {
@@ -22,14 +24,16 @@ if (TextInput.defaultProps == null) {
 }
 
 export const App: FC = () => (
-  <Theme.Screen>
-    <AppNavigator>
-      <SafeAreaProvider>
-        <ModalContextProvider>
-          <Loader />
-          <AppRouter />
-        </ModalContextProvider>
-      </SafeAreaProvider>
-    </AppNavigator>
-  </Theme.Screen>
+  <ReduxProvider>
+    <Theme.Screen>
+      <AppNavigator>
+        <SafeAreaProvider>
+          <ModalContextProvider>
+            <Loader />
+            <AppRouter />
+          </ModalContextProvider>
+        </SafeAreaProvider>
+      </AppNavigator>
+    </Theme.Screen>
+  </ReduxProvider>
 );

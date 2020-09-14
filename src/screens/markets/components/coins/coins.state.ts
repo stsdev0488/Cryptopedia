@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { trackPromise } from 'react-promise-tracker';
 
 import { getCoinList, getCoins } from '@services/api';
-import { usePromise } from '@services/hooks';
+import { useAction, usePromise, useReduxSelector } from '@services/hooks';
 import { getImages } from '@services/utils';
+import { coinsActions } from './coins.actions';
 
 import { ICoinData } from '@typings/api';
 
@@ -18,12 +19,16 @@ const loadCoins = async (page: number) => {
   return coins.map((coin, index) => ({ ...coin, image: images[index] }));
 };
 
-export const useAllCoinsState = () => {
-  const [data, setData] = useState<(ICoinData & { image?: string })[]>([]);
+export const useCoinsState = () => {
+  const { coins: savedCoins } = useReduxSelector((redux) => redux.coins);
+  const [data, setData] = useState<(ICoinData & { image?: string })[]>(savedCoins);
+
+  const updateCoins = useAction(coinsActions.updateCoins);
 
   usePromise(async () => {
     const coins = await trackPromise(loadCoins(0));
 
+    updateCoins({ coins });
     setData(coins);
   });
 
