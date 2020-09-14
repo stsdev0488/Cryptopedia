@@ -43,3 +43,16 @@ export interface IDictinaryItem {
   term: string;
   youtubeLink: string;
 }
+
+export interface IResourceLink {
+  imageurl: string;
+  title: string;
+  url: string;
+}
+
+export interface IResource {
+  title: string;
+  links: {
+    [key: string]: IResourceLink;
+  };
+}
