@@ -1,4 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+
+import { ROUTES } from '@constants/routes';
 
 enum TimeIntervals {
   hours6 = 'Past 6 hours',
@@ -10,11 +13,13 @@ enum TimeIntervals {
   year = 'Past Year',
 }
 
-// setup for graph
-export const useSubHeaderState = (name: string) => {
+export const useSubHeaderState = (name: string, route: keyof typeof ROUTES, symbol: string) => {
   const [time] = useState(TimeIntervals.hours6);
 
-  const handleAddToPorfolioPress = () => console.log({ name });
+  const { navigate } = useNavigation();
+  const newRoute =
+    route === 'homeRouter' ? ROUTES.transactionHome : ROUTES.transaction;
+  const handleAddToPorfolioPress = () => navigate(newRoute, { title: name, symbol });
 
   return { time, handleAddToPorfolioPress };
 };

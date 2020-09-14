@@ -4,6 +4,7 @@ import { Button } from '@components/button';
 
 import { useSubHeaderState } from './sub-header.state';
 
+import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
 
@@ -13,10 +14,12 @@ import { SubHeaderStyles } from './sub-header.styles';
 interface ISubHeaderProps {
   price: string;
   name: string;
+  route: keyof typeof ROUTES;
+  symbol: string;
 }
 
-export const SubHeader: FC<ISubHeaderProps> = ({ price, name }) => {
-  const { time, handleAddToPorfolioPress } = useSubHeaderState(name);
+export const SubHeader: FC<ISubHeaderProps> = ({ price, name, route, symbol }) => {
+  const { time, handleAddToPorfolioPress } = useSubHeaderState(name, route, symbol);
 
   const { DETAIL } = STRINGS;
 

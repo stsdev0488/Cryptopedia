@@ -30,7 +30,7 @@ export const Detail: FC<IDetailProps> = ({ route }) => {
         rightIconHandler={handlePress}
       />
       <DetailStyles.Wrapper bounces={false}>
-        <SubHeader price={price} name={name} />
+        <SubHeader price={price} name={name} route={router} symbol={symbol} />
         <Market cap={cap} volume={volume} change={change} />
         <News symbol={symbol} title={name} route={router} />
         <About symbol={symbol} />

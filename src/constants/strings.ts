@@ -48,6 +48,16 @@ export const STRINGS = {
     title: 'Markets',
     noFav: 'No Favorites.',
     addFav: 'Add it from Market Detail Screen.',
+    transactionDesc:
+      'Input the amount of tokens you hold and the price your purchased it at.',
+    buy: 'Buy',
+    sell: 'Sell',
+    addTransaction: 'Add transaction',
+    price: 'Price (per coin) $',
+    number: 'Number of Coins',
+    total: 'Total ($)',
+    unhandled: 'Unhandled operation',
+    notEnough: 'Not enough coins to proceed operation',
   },
   PORTFOLIO: {
     title: 'Portfolio',

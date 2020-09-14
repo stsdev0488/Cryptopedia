@@ -6,11 +6,13 @@ export const ROUTES = {
   settings: 'Settings',
   detailHome: 'Detail Home',
   detailNewsHome: 'Detail News Home',
+  transactionHome: 'Transaction Home',
 
   marketsRouter: 'Markets Router',
   markets: 'Markets',
   detail: 'Detail',
   detailNews: 'Detail News',
+  transaction: 'Transaction',
 
   learn: 'Learn',
   courses: 'Courses',

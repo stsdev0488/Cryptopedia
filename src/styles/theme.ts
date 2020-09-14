@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { COLORS, FONT_SIZES } from './constants';
+import { COLORS, FONT_FAMILY, FONT_SIZES } from './constants';
 
 interface ICenteredProp {
   isCentered?: boolean;
@@ -36,13 +36,13 @@ export const Theme = {
     font-family: ${({ fontWeight }) => {
       switch (fontWeight) {
         case 'normal':
-          return 'CircularStd-Book';
+          return FONT_FAMILY.normal;
         case 'medium':
-          return 'CircularStd-Medium';
+          return FONT_FAMILY.medium;
         case 'bold':
-          return 'Nexa Bold';
+          return FONT_FAMILY.bold;
         default:
-          return 'CircularStd-Book';
+          return FONT_FAMILY.normal;
       }
     }}
   `,
