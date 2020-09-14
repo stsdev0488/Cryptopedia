@@ -9,3 +9,5 @@ export const CURRENCY_SYMBOLS = {
 };
 
 export const CAP_PREFIXES = ['B', 'M', 'K', ''];
+
+export const MAX_COINS = 2000;

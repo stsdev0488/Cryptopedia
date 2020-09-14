@@ -11,13 +11,13 @@ import { STRINGS } from '@constants/strings';
 
 export const NewsList = () => {
   const { HOME } = STRINGS;
-  const { data } = useNewsListState();
+  const { news } = useNewsListState();
 
   return (
     <ScrollView stickyHeaderIndices={[1]} bounces={false}>
       <CoinHeader />
       <NewsListHeader title={HOME.news} />
-      {data.map((item) => (
+      {news.map((item) => (
         <NewPreview key={item.id} {...item} web={item.source_info.name} />
       ))}
     </ScrollView>

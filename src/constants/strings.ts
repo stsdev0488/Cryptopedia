@@ -61,6 +61,11 @@ export const STRINGS = {
   },
   PORTFOLIO: {
     title: 'Portfolio',
+    coin: 'Coin',
+    price: 'Price',
+    total: 'Total',
+    track: 'Track your crypto portfolio here.',
+    addCoins: 'Add coins to your portfolio by clicking on a coin in markets.',
   },
   SETTINGS: {
     notifications: 'NOTIFICATIONS',

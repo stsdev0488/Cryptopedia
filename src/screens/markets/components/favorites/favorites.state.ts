@@ -1,12 +1,14 @@
 import { useReduxSelector } from '@services/hooks';
+import { useCoinsState } from '../coins/coins.state';
 
 export const useFavoritesState = () => {
-  const favoriteCoins = useReduxSelector((redux) => {
-    const { coins } = redux.coins;
-    const { favorites } = redux.detail;
+  const { coins, coinList } = useCoinsState();
 
-    return coins.filter((coin) => favorites.includes(coin.symbol));
-  });
+  const { favorites } = useReduxSelector((redux) => redux.detail);
 
-  return { favoriteCoins };
+  return {
+    favorites,
+    favoritesCoinInfo: coins?.filter(({ symbol }) => favorites.includes(symbol)),
+    coinList,
+  };
 };

@@ -6,7 +6,7 @@ import { TabBar } from '@components/tab-bar';
 import { HomeRouter } from '@screens/home';
 import { LearnScreenRouter } from '@screens/learn';
 import { MarketsScreenRouter } from '@screens/markets';
-import { Portfolio } from '@screens/portfolio';
+import { PortfolioRouter } from '@screens/portfolio';
 
 import { ROUTES } from '@constants/routes';
 
@@ -25,7 +25,7 @@ export const TabNavigator = () => (
     >
       <Stack.Screen name={ROUTES.home} component={HomeRouter} />
       <Stack.Screen name={ROUTES.markets} component={MarketsScreenRouter} />
-      <Stack.Screen name={ROUTES.portfolio} component={Portfolio} />
+      <Stack.Screen name={ROUTES.portfolio} component={PortfolioRouter} />
       <Stack.Screen name={ROUTES.learn} component={LearnScreenRouter} />
     </Stack.Navigator>
     <TabBar />

@@ -1,36 +1,20 @@
 import { useState } from 'react';
-import { trackPromise } from 'react-promise-tracker';
 
 import { getCoinList, getCoins } from '@services/api';
-import { useAction, usePromise, useReduxSelector } from '@services/hooks';
-import { getImages } from '@services/utils';
-import { coinsActions } from './coins.actions';
+import { usePromise } from '@services/hooks';
 
-import { ICoinData } from '@typings/api';
-
-const COINS_PER_PAGE = 30;
-
-const loadCoins = async (page: number) => {
-  const coins = await getCoins(COINS_PER_PAGE, page * COINS_PER_PAGE + 1);
-  const coinList = await getCoinList();
-
-  const images = getImages(coins, coinList);
-
-  return coins.map((coin, index) => ({ ...coin, image: images[index] }));
-};
+import { MAX_COINS } from '@constants/currency';
+import { COINS_PER_PAGE } from './coins.constants';
 
 export const useCoinsState = () => {
-  const { coins: savedCoins } = useReduxSelector((redux) => redux.coins);
-  const [data, setData] = useState<(ICoinData & { image?: string })[]>(savedCoins);
+  const [page, setPage] = useState(1);
+  const [coinList] = usePromise(async () => await getCoinList());
+  const [coins] = usePromise(async () => await getCoins(MAX_COINS));
 
-  const updateCoins = useAction(coinsActions.updateCoins);
-
-  usePromise(async () => {
-    const coins = await trackPromise(loadCoins(0));
-
-    updateCoins({ coins });
-    setData(coins);
-  });
-
-  return { data };
+  return {
+    coins: coins?.slice(0, page * COINS_PER_PAGE),
+    page,
+    setPage,
+    coinList,
+  };
 };

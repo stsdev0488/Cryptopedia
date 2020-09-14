@@ -13,13 +13,22 @@ enum TimeIntervals {
   year = 'Past Year',
 }
 
-export const useSubHeaderState = (name: string, route: keyof typeof ROUTES, symbol: string) => {
+export const useSubHeaderState = (
+  name: string,
+  route: keyof typeof ROUTES,
+  symbol: string
+) => {
   const [time] = useState(TimeIntervals.hours6);
 
   const { navigate } = useNavigation();
   const newRoute =
-    route === 'homeRouter' ? ROUTES.transactionHome : ROUTES.transaction;
-  const handleAddToPorfolioPress = () => navigate(newRoute, { title: name, symbol });
+    route === 'homeRouter'
+      ? ROUTES.transactionHome
+      : route === 'portfolioRouter'
+      ? ROUTES.transactionPortfolio
+      : ROUTES.transaction;
+  const handleAddToPorfolioPress = () =>
+    navigate(newRoute, { title: name, symbol });
 
   return { time, handleAddToPorfolioPress };
 };

@@ -15,11 +15,11 @@ import { Theme } from '@styles/theme';
 import { CoursesStyles } from './courses.styles';
 
 export const Courses = () => {
-  const { data } = useCoursesState();
+  const { courses } = useCoursesState();
 
   const handleEducationPress = () => openLink(LINKS.education);
 
-  const titleCourse = data[0];
+  const titleCourse = courses[0];
 
   const { LEARN } = STRINGS;
 
@@ -57,7 +57,7 @@ export const Courses = () => {
               onPress={handleEducationPress}
             />
           </CoursesStyles.TitleRow>
-          {data.slice(1).map(({ imageurl, title, description, key }) => (
+          {courses.slice(1).map(({ imageurl, title, description, key }) => (
             <CourseItem
               key={key}
               image={imageurl}

@@ -19,7 +19,7 @@ interface IRenderSectionHeaderProps {
 }
 
 export const Resources = () => {
-  const { data } = useResourcesState();
+  const { resources } = useResourcesState();
 
   const renderItem = ({ item }: IRenderItemProps) => <Resource {...item} />;
 
@@ -36,7 +36,7 @@ export const Resources = () => {
   return (
     <Theme.Screen color={COLORS.white}>
       <SectionList
-        sections={data.map(({ title, links }) => ({
+        sections={resources.map(({ title, links }) => ({
           title,
           data: Object.values(links),
         }))}

@@ -21,7 +21,12 @@ export const ROUTES = {
   dictionaryDetail: 'Dictionary Detail',
   resources: 'Resources',
 
+  portfolioRouter: 'Portfolio Router',
   portfolio: 'Portfolio',
+  detailPortfolio: 'Detail Portfolio',
+  detailNewsPortfolio: 'Detail News Portfolio',
+  transactionPortfolio: 'Transaction Portfolio',
+
   coins: 'All Coins',
   defi: 'DeFi Dashboard',
   favorites: 'Favorites',

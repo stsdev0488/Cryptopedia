@@ -4,9 +4,8 @@ import { usePromise } from '@services/hooks';
 import { INewData } from '@typings/api';
 
 export const useNewsListState = () => {
-  const [data] = usePromise<INewData[]>(async () => {
-    return await getNews();
-  });
+  const [news] = usePromise<INewData[]>(async () => await getNews()
+  );
 
-  return { data: data || [] };
+  return { news: news || [] };
 };

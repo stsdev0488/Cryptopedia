@@ -17,7 +17,7 @@ export const CourseDetail: FC<ICourseDetailProps> = ({ route }) => {
 
   const scroll = useRef<ScrollView>(null);
 
-  const { data, activeVideo, setActiveVideo } = useCourseDetailState(course);
+  const { courses, activeVideo, setActiveVideo } = useCourseDetailState(course);
 
   return (
     <Theme.Screen>
@@ -28,7 +28,7 @@ export const CourseDetail: FC<ICourseDetailProps> = ({ route }) => {
           title={activeVideo?.title}
           desc={activeVideo?.description}
         />
-        {data.map((video) => {
+        {courses.map((video) => {
           const handlePress = () => {
             setActiveVideo(video);
             scroll.current?.scrollTo({ y: 0, animated: true });

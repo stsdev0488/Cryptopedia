@@ -8,12 +8,12 @@ import { usePromise } from '@services/hooks';
 export const useCourseDetailState = (course: string) => {
   const [activeVideo, setActiveVideo] = useState<IVideo | undefined>(undefined);
 
-  const [data] = usePromise(async () => {
+  const [courses] = usePromise(async () => {
     const result = await trackPromise(getCourseVideos(course));
 
     setActiveVideo(result[0]);
     return result;
   });
 
-  return { data: data || [], activeVideo, setActiveVideo };
+  return { courses: courses || [], activeVideo, setActiveVideo };
 };

@@ -17,17 +17,17 @@ interface IAboutProps {
 }
 
 export const About: FC<IAboutProps> = ({ symbol }) => {
-  const { data } = useAboutState(symbol);
+  const { coinInfo } = useAboutState(symbol);
 
   const handleWhitepaperPress = () => {
-    if (data?.paperUrl) {
-      openBrowser(data.paperUrl);
+    if (coinInfo?.paperUrl) {
+      openBrowser(coinInfo.paperUrl);
     }
   };
 
   const { DETAIL } = STRINGS;
 
-  if (!data) {
+  if (!coinInfo) {
     return null;
   }
 
@@ -37,12 +37,12 @@ export const About: FC<IAboutProps> = ({ symbol }) => {
         <AboutStyles.Title fontSize="bigTitle" color={COLORS.black}>
           {DETAIL.about}
         </AboutStyles.Title>
-        {data.about && (
+        {coinInfo.about && (
           <AboutStyles.About color={COLORS.black}>
-            {data.about}
+            {coinInfo.about}
           </AboutStyles.About>
         )}
-        {data.paperUrl && (
+        {coinInfo.paperUrl && (
           <TouchableHighlight
             underlayColor={COLORS.transparent}
             onPress={handleWhitepaperPress}
@@ -52,40 +52,40 @@ export const About: FC<IAboutProps> = ({ symbol }) => {
             </AboutStyles.Whitepaper>
           </TouchableHighlight>
         )}
-        {data.creator && <InfoRow title={DETAIL.creator} text={data.creator} />}
-        {data.website && (
+        {coinInfo.creator && <InfoRow title={DETAIL.creator} text={coinInfo.creator} />}
+        {coinInfo.website && (
           <LinkRow
             title={DETAIL.website}
-            text={data.website.displayText}
-            link={data.website.url}
+            text={coinInfo.website.displayText}
+            link={coinInfo.website.url}
           />
         )}
-        {data.consensus_method && (
-          <InfoRow title={DETAIL.consensus} text={data.consensus_method} />
+        {coinInfo.consensus_method && (
+          <InfoRow title={DETAIL.consensus} text={coinInfo.consensus_method} />
         )}
-        {data.hashing_algorithm && (
-          <InfoRow title={DETAIL.hash} text={data.hashing_algorithm} />
+        {coinInfo.hashing_algorithm && (
+          <InfoRow title={DETAIL.hash} text={coinInfo.hashing_algorithm} />
         )}
-        {data.explorer && (
+        {coinInfo.explorer && (
           <LinkRow
             title={DETAIL.explorer}
-            text={data.explorer.displayText}
-            link={data.explorer.url}
+            text={coinInfo.explorer.displayText}
+            link={coinInfo.explorer.url}
           />
         )}
-        {data.more_info && (
+        {coinInfo.more_info && (
           <LinkRow
             title={DETAIL.more_info}
-            text={data.more_info.displayText}
-            link={data.more_info.url}
+            text={coinInfo.more_info.displayText}
+            link={coinInfo.more_info.url}
           />
         )}
       </AboutStyles.Wrapper>
-      {data.networks && (
+      {coinInfo.networks && (
         <Networks
-          twitter={data.networks.twitter}
-          reddit={data.networks.reddit}
-          facebook={data.networks.facebook}
+          twitter={coinInfo.networks.twitter}
+          reddit={coinInfo.networks.reddit}
+          facebook={coinInfo.networks.facebook}
         />
       )}
     </>

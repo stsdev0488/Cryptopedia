@@ -19,7 +19,7 @@ const SearchWrapper = styled.View`
 `;
 
 export const Dictionary = () => {
-  const { data, filter, setFilter } = useDictionaryState();
+  const { dictionary, filter, setFilter } = useDictionaryState();
 
   const { navigate } = useNavigation();
 
@@ -33,11 +33,7 @@ export const Dictionary = () => {
             placeholder={STRINGS.LEARN.search}
           />
         </SearchWrapper>
-        {data
-          .filter(
-            ({ term }) =>
-              term.toLowerCase().indexOf(filter.toLowerCase()) !== -1
-          )
+        {dictionary
           .map((el) => {
             const handlePress = () => navigate(ROUTES.dictionaryDetail, el);
             return (

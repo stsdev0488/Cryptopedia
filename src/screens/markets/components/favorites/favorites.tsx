@@ -3,7 +3,9 @@ import { ScrollView } from 'react-native';
 
 import { Coin, Header } from '../coins/components';
 
-import { getCap, getChange, getPrice, getVolume } from '@services/utils';
+import {
+  getCap, getChange, getImage, getPrice, getVolume
+} from '@services/utils';
 import { useFavoritesState } from './favorites.state';
 
 import { STRINGS } from '@constants/strings';
@@ -12,11 +14,11 @@ import { COLORS } from '@styles/constants';
 import { Theme } from '@styles/theme';
 
 export const Favorites = () => {
-  const { favoriteCoins } = useFavoritesState();
+  const { favorites, favoritesCoinInfo, coinList } = useFavoritesState();
 
   const { MARKETS } = STRINGS;
 
-  if (favoriteCoins.length === 0) {
+  if (favorites.length === 0) {
     return (
       <Theme.Screen color={COLORS.white} isCentered>
         <Theme.Text fontSize="big" color={COLORS.black}>
@@ -33,7 +35,7 @@ export const Favorites = () => {
     <Theme.Screen color={COLORS.white}>
       <ScrollView stickyHeaderIndices={[0]}>
         <Header />
-        {favoriteCoins.map((coin, index) => (
+        {favoritesCoinInfo?.map((coin, index) => (
           <Coin
             key={coin.id}
             title={coin.name}
@@ -42,7 +44,7 @@ export const Favorites = () => {
             change={getChange(coin)}
             cap={getCap(coin)}
             volume={getVolume(coin)}
-            image={coin.image}
+            image={getImage(coin.symbol, coinList)}
             symbol={coin.symbol}
           />
         ))}

@@ -17,7 +17,7 @@ import { IRenderItemProps } from './coin-header.typings';
 import { CoinHeaderStyles } from './coin-header.styles';
 
 export const CoinHeader = () => {
-  const { data } = useCoinHeaderState();
+  const { pairCoinInfo } = useCoinHeaderState();
   const { HOME } = STRINGS;
   const windowWidth = Dimensions.get('window').width;
   const { navigate } = useNavigation();
@@ -63,7 +63,7 @@ export const CoinHeader = () => {
       <CoinHeaderStyles.CarouselWrapper>
         <Carousel
           vertical={false}
-          data={data}
+          data={pairCoinInfo}
           renderItem={renderItem}
           sliderWidth={windowWidth}
           itemWidth={windowWidth}

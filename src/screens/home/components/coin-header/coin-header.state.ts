@@ -5,7 +5,7 @@ import { getImages } from '@services/utils';
 import { IData } from './coin-header.typings';
 
 export const useCoinHeaderState = () => {
-  const [data] = usePromise<IData[][]>(async () => {
+  const [pairCoinInfo] = usePromise<IData[][]>(async () => {
     const coins = await getCoins(10);
     const coinList = await getCoinList();
     const images = getImages(coins, coinList);
@@ -20,5 +20,5 @@ export const useCoinHeaderState = () => {
     return [];
   });
 
-  return { data: data || [] };
+  return { pairCoinInfo: pairCoinInfo || [] };
 };
