@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
 
 import { Button } from '@components/button';
+import { Chart } from '../chart';
+import { ChartControl } from '../chart-control';
 
 import { useSubHeaderState } from './sub-header.state';
+import { getChartBasedTime } from './sub-header.utils';
 
+import { CURRENCY_SYMBOLS } from '@constants/currency';
 import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
@@ -18,19 +22,51 @@ interface ISubHeaderProps {
   symbol: string;
 }
 
-export const SubHeader: FC<ISubHeaderProps> = ({ price, name, route, symbol }) => {
-  const { time, handleAddToPorfolioPress } = useSubHeaderState(name, route, symbol);
+export const SubHeader: FC<ISubHeaderProps> = ({
+  price,
+  name,
+  route,
+  symbol,
+}) => {
+  const {
+    time,
+    setTime,
+    type,
+    setType,
+    handleAddToPorfolioPress,
+    activePoint,
+    setActivePoint,
+    touched,
+    setTouched,
+    chartData,
+  } = useSubHeaderState(name, route, symbol);
 
   const { DETAIL } = STRINGS;
+
+  const date = activePoint ? new Date(activePoint.time * 1000) : new Date();
 
   return (
     <SubHeaderStyles.Wrapper>
       <Theme.Text fontSize="bigTitle" isCentered color={COLORS.white}>
-        {price}
+        {touched && activePoint ? `${CURRENCY_SYMBOLS.USD}${activePoint.high.toFixed(2)}` : price}
       </Theme.Text>
       <Theme.Text isCentered color={COLORS.white}>
-        {time}
+        {touched ? getChartBasedTime(time, date) : time}
       </Theme.Text>
+      <Chart
+        type={type}
+        onSelect={setActivePoint}
+        onTouch={setTouched}
+        touched={touched}
+        chartData={chartData}
+        selected={activePoint}
+      />
+      <ChartControl
+        setTime={setTime}
+        setType={setType}
+        activeTime={time}
+        activeType={type}
+      />
       <SubHeaderStyles.ButtonWrapper>
         <Button
           title={DETAIL.addToPortfolio}

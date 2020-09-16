@@ -1,6 +1,8 @@
 import { apiCall } from './http';
 
-import { API, IGetNewsParameters, TCurrency } from '@typings/api.d';
+import {
+  API, IGetNewsParameters, TCurrency, TSnapshotStep
+} from '@typings/api.d';
 
 export const getNews = async (props: IGetNewsParameters = {}) => {
   const result = await apiCall(
@@ -20,14 +22,32 @@ export const getCoinList = async () => {
   return result;
 };
 
+export const getSnapshotRequest = (
+  step?: TSnapshotStep
+) => {
+  switch (step) {
+    case 'hour':
+      return 'get_snapshot_hour';
+    case 'minute':
+      return 'get_snapshot_minute';
+    case 'day':
+      return 'get_snapshot_day';
+    default:
+      return 'get_snapshot_hour';
+  }
+};
+
 export const getSnapshot = async (
   symbol: string,
   currency: TCurrency,
-  limit?: number
+  limit?: number,
+  step?: TSnapshotStep
 ) => {
+  const request = getSnapshotRequest(step);
+
   const result = await apiCall(
     API.min,
-    'get_snapshot'
+    request
   )({
     fsym: symbol,
     tsym: currency,

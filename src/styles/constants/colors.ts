@@ -17,6 +17,7 @@ export const COLORS = {
   primaryGray: '#98999A',
   solidGray: '#7F8081',
   grayTitle: '#54595C',
+  grayChartControls: '#60707E',
   grayButton: '#D4D5D6',
   grayPlaceholder: '#8D8E91',
   graySectionTitle: '#9198A6',

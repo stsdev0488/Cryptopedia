@@ -94,7 +94,7 @@ export const CoinPreview: FC<ICoinPeviewProps> = ({
             }}
             svg={{ stroke: COLORS.primaryBlue }}
             contentInset={{ bottom: 10, top: 5 }}
-            curve={shape.curveNatural}
+            curve={shape.curveMonotoneX}
           />
         </CoinPreviewStyles.Chart>
       </CoinPreviewStyles.Wrapper>

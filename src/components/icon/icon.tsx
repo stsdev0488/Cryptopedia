@@ -5,10 +5,12 @@ import { COLORS } from '@styles/constants';
 import { IconStyles } from './icon.styles';
 
 import back from '@assets/back.svg';
+import barChart from '@assets/bar-chart.svg';
 import close from '@assets/close.svg';
 import forward from '@assets/forward.svg';
 import settings from '@assets/home/settings.svg';
 import videoBars from '@assets/learn/video-bars.svg';
+import lineChart from '@assets/line-chart.svg';
 import home from '@assets/menu/home.svg';
 import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
@@ -31,6 +33,9 @@ const ICONS = {
   close,
   star,
   starActive,
+
+  lineChart,
+  barChart,
 
   videoBars,
 };

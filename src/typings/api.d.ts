@@ -86,21 +86,27 @@ export enum MethodsEndpoints {
   get_news = 'v2/news/?lang=EN',
   get_coins = 'v1/cryptocurrency/listings/latest',
   get_coin_list = 'all/coinlist',
-  get_snapshot = 'histohour',
+  get_snapshot_hour = 'histohour',
+  get_snapshot_minute = 'histominute',
+  get_snapshot_day = 'histoday',
 }
 
 export interface IMethodsParameters {
   get_news: IGetNewsParameters;
   get_coins: IGetCoinsParameters;
   get_coin_list: {};
-  get_snapshot: IGetSnapshotParameters;
+  get_snapshot_hour: IGetSnapshotParameters;
+  get_snapshot_minute: IGetSnapshotParameters;
+  get_snapshot_day: IGetSnapshotParameters;
 }
 
 export interface IMethodsReturn {
   get_news: IGetNewsReturn;
   get_coins: IGetCoinsReturn;
   get_coin_list: IGetCoinListReturn;
-  get_snapshot: IGetSnapshotReturn;
+  get_snapshot_hour: IGetSnapshotReturn;
+  get_snapshot_minute: IGetSnapshotReturn;
+  get_snapshot_day: IGetSnapshotReturn;
 }
 
 export interface IMethodsHeaders {
@@ -109,5 +115,9 @@ export interface IMethodsHeaders {
     'X-CMC_PRO_API_KEY': string;
   };
   get_coin_list: {};
-  get_snapshot: {};
+  get_snapshot_hour: {};
+  get_snapshot_minute: {};
+  get_snapshot_day: {};
 }
+
+export type TSnapshotStep = 'day' | 'hour' | 'minute';
