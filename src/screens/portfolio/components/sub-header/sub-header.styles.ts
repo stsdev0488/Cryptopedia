@@ -1,3 +1,4 @@
+import { PieChart } from 'react-native-svg-charts';
 import styled from 'styled-components/native';
 
 import { COLORS } from '@styles/constants';
@@ -19,5 +20,8 @@ export const SubHeaderStyles = {
   `,
   Value: styled(Theme.Text)`
     margin-left: 10px;
+  `,
+  Chart: styled(PieChart)`
+    height: 200px;
   `
 };

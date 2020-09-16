@@ -24,3 +24,16 @@ export const COLORS = {
   primaryBlue: '#0F5AF1',
   lightBlue: '#7BBEFD',
 };
+
+export const CHART_COLORS = [
+  '#2ecc70',
+  '#3498db',
+  '#9c59b6',
+  '#1abc9c',
+  '#f1c40f',
+  '#e67d22',
+  '#9c59b6',
+  '#e74c3c',
+  '#95a5a6',
+  '#34495e',
+];

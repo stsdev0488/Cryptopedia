@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
 
+import { Chart } from '../chart';
+
 import { CURRENCY_SYMBOLS } from '@constants/currency';
 import { COLORS } from '@styles/constants';
 
@@ -9,9 +11,12 @@ import { SubHeaderStyles } from './sub-header.styles';
 interface ISubHeaderProps {
   total: number;
   spent: number;
+  prices: {
+    [key: string]: number;
+  }[];
 }
 
-export const SubHeader: FC<ISubHeaderProps> = ({ total, spent }) => {
+export const SubHeader: FC<ISubHeaderProps> = ({ total, spent, prices }) => {
   const returns = total - spent;
 
   const color = returns < 0 ? COLORS.red : COLORS.green;
@@ -43,6 +48,7 @@ export const SubHeader: FC<ISubHeaderProps> = ({ total, spent }) => {
           </SubHeaderStyles.Value>
         </SubHeaderStyles.Returns>
       </SubHeaderStyles.Row>
+      <Chart prices={prices} total={total} />
     </SubHeaderStyles.Wrapper>
   );
 };

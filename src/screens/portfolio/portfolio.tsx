@@ -11,7 +11,7 @@ import { COLORS } from '@styles/constants';
 import { Theme } from '@styles/theme';
 
 export const Portfolio = () => {
-  const { spent, total } = usePortfolioState();
+  const { spent, total, prices } = usePortfolioState();
 
   const { PORTFOLIO } = STRINGS;
 
@@ -31,7 +31,7 @@ export const Portfolio = () => {
     <Theme.Screen>
       <Header title={STRINGS.PORTFOLIO.title} />
       <Theme.Screen>
-        <SubHeader spent={spent} total={total} />
+        <SubHeader spent={spent} total={total} prices={prices} />
         <Coins />
       </Theme.Screen>
     </Theme.Screen>

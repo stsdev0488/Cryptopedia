@@ -20,6 +20,7 @@ export const usePortfolioState = () => {
         if (coin) {
           return { [symbol]: parseFloat(getPrice(coin, false)) * count };
         }
+        return {};
       }
     );
 
