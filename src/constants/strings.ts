@@ -35,7 +35,7 @@ export const STRINGS = {
     change24H: '24H Change',
     news: 'News',
     sponsor:
-      'Tap to read the Cryptopedia launch press release! is our sponsor for the month of September.',
+      ' is our sponsor for the month of ',
   },
   LEARN: {
     title: 'Learn',

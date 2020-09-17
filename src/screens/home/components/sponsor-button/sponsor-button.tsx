@@ -10,11 +10,15 @@ import { COLORS } from '@styles/constants';
 import { SponsorButtonStyles } from './sponsor-button.styles';
 
 export const SponsorButton = () => {
-  const { setOpen } = useContext(ModalContext);
+  const { setOpen, modalInfo } = useContext(ModalContext);
 
   const { HOME } = STRINGS;
 
   const handlePress = () => setOpen && setOpen(true);
+
+  if (!modalInfo) {
+    return null;
+  }
 
   return (
     <TouchableHighlight
@@ -23,7 +27,9 @@ export const SponsorButton = () => {
     >
       <SponsorButtonStyles.Wrapper>
         <SponsorButtonStyles.Text color={COLORS.white} fontWeight="medium">
+          {modalInfo.name}
           {HOME.sponsor}
+          {modalInfo.month}.
         </SponsorButtonStyles.Text>
         <Icon type="forward" size={15} color="white" />
       </SponsorButtonStyles.Wrapper>

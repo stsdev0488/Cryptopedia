@@ -2,7 +2,7 @@ import database from '@react-native-firebase/database';
 
 import {
   ICoinSnapshotData, ICourseData, IDictinaryItem, IResource, ISnapshotElement,
-  IVideo
+  ISponsors, IVideo
 } from './firebase.typings';
 
 export const getCoinSnapshotBySymbol = async (
@@ -63,4 +63,10 @@ export const getResources = async (): Promise<IResource[]> => {
   });
 
   return resources;
+};
+
+export const getSponsors = async (): Promise<ISponsors> => {
+  const snapshot = await database().ref('/monthlysponsors').once('value');
+
+  return snapshot.val();
 };

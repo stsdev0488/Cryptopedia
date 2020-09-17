@@ -25,4 +25,7 @@ export const ModalStyles = {
   Message: styled.View`
     padding: 10px;
   `,
+  Image: styled.Image`
+    height: 250px;
+  `,
 };

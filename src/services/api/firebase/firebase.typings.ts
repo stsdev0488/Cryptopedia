@@ -56,3 +56,13 @@ export interface IResource {
     [key: string]: IResourceLink;
   };
 }
+
+export interface ISponsors {
+  description: string;
+  imageurl: string;
+  month: string;
+  name: string;
+  othersponsorurl: string;
+  readmoreurl: string;
+  title: string;
+}
