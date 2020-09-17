@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
-import { useSafeArea } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Icon, TIconTypes } from '@components/icon';
 
@@ -31,7 +31,7 @@ export const Header: FC<IHeaderProps> = ({
   isBack,
   isLogo,
 }) => {
-  const { top } = useSafeArea();
+  const { top } = useSafeAreaInsets();
   const paddingTop = top < DEFAULT_TOP ? DEFAULT_TOP : top;
   const navigation = useNavigation();
 
@@ -80,6 +80,7 @@ export const Header: FC<IHeaderProps> = ({
           <HeaderStyles.RightIcon
             underlayColor={COLORS.transparent}
             onPress={rightIconHandler}
+            isLogo={isLogo}
           >
             <Icon size={23} type={rightIcon} color={color || 'white'} />
           </HeaderStyles.RightIcon>

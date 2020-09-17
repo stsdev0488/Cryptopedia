@@ -11,10 +11,11 @@ export const HeaderStyles = {
     position: absolute;
     width: 100%;
   `,
-  RightIcon: styled.TouchableHighlight`
+  RightIcon: styled.TouchableHighlight<{ isLogo?: boolean }>`
     position: absolute;
     right: 20px;
     top: 100%;
+    ${({ isLogo }) => !isLogo && 'margin-top: -5px;'}
   `,
   Back: styled.TouchableHighlight`
     position: absolute;

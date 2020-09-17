@@ -1,6 +1,7 @@
 export const STRINGS = {
   HEADER: {
     back: 'Back',
+    cancel: 'Cancel',
   },
   MODAL: {
     title: 'Introducing Cryptopedia',
@@ -58,6 +59,7 @@ export const STRINGS = {
     total: 'Total ($)',
     unhandled: 'Unhandled operation',
     notEnough: 'Not enough coins to proceed operation',
+    searchPlaceholder: 'Search Coin name or Symbol...'
   },
   PORTFOLIO: {
     title: 'Portfolio',

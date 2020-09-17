@@ -11,11 +11,13 @@ interface ISearchFieldProps {
   placeholder: string;
   value: string;
   setValue: (value: string) => void;
+  isAutoFocus?: boolean;
 }
 export const SearchField: FC<ISearchFieldProps> = ({
   value,
   setValue,
   placeholder,
+  isAutoFocus,
 }) => {
   const handleClearPress = () => setValue('');
 
@@ -31,6 +33,7 @@ export const SearchField: FC<ISearchFieldProps> = ({
         autoCorrect={false}
         autoCapitalize="none"
         placeholderTextColor={COLORS.grayPlaceholder}
+        autoFocus={isAutoFocus}
       />
       {value !== '' && (
         <SearchFieldStyles.IconWrapper isRight>

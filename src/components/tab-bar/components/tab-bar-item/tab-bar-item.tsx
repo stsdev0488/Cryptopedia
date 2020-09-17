@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TouchableHighlight, View } from 'react-native';
-import { useSafeArea } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Icon, TIconTypes } from '@components/icon';
 
@@ -21,7 +21,7 @@ export const TabBarItem: FC<ITabBarItemProps> = ({
   isActive,
   onPress,
 }) => {
-  const { bottom } = useSafeArea();
+  const { bottom } = useSafeAreaInsets();
 
   return (
     <TabBarItemStyles.Wrapper style={{ paddingBottom: bottom }}>

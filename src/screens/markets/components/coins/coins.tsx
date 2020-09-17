@@ -1,7 +1,7 @@
 import { FlatList } from 'react-native-gesture-handler';
 
 import React from 'react';
-import { ListRenderItem } from 'react-native';
+import { ListRenderItem, RefreshControl } from 'react-native';
 
 import { Coin, Header } from './components';
 
@@ -19,7 +19,14 @@ import { ICoinData } from '@typings/api';
 import { Theme } from '@styles/theme';
 
 export const Coins = () => {
-  const { coins, page, setPage, coinList } = useCoinsState();
+  const {
+    coins,
+    page,
+    setPage,
+    coinList,
+    refreshing,
+    onRefresh,
+  } = useCoinsState();
 
   const handleReachEnd = () => {
     if (page < MAX_COINS / COINS_PER_PAGE) {
@@ -47,6 +54,9 @@ export const Coins = () => {
   return (
     <Theme.Screen color={COLORS.white}>
       <FlatList
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
         ListHeaderComponent={renderHeader}
         stickyHeaderIndices={[0]}
         data={coins?.map((el, index) => ({ ...el, index }))}
