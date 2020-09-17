@@ -4,7 +4,7 @@ import { trackPromise } from 'react-promise-tracker';
 import { SearchContext } from '../search-context';
 
 import { getCoinList, getCoins } from '@services/api';
-import { usePromise } from '@services/hooks';
+import { usePromise, useReduxSelector } from '@services/hooks';
 
 import { MAX_COINS } from '@constants/currency';
 import { COINS_PER_PAGE } from './coins.constants';
@@ -13,6 +13,7 @@ import { ICoinData, IGetCoinListReturn } from '@typings/api';
 
 export const useCoinsState = () => {
   const [refreshing, setRefreshing] = useState(false);
+  const { currency } = useReduxSelector((redux) => redux.markets);
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -25,11 +26,11 @@ export const useCoinsState = () => {
   const [coinList, setCoinList] = useState<IGetCoinListReturn | undefined>();
 
   const loadData = useCallback(async () => {
-    setCoins(await getCoins(MAX_COINS));
+    setCoins(await getCoins(MAX_COINS, currency));
     setCoinList(await getCoinList());
-  }, []);
+  }, [currency]);
 
-  usePromise(async () => await trackPromise(loadData()));
+  usePromise(async () => await trackPromise(loadData()), [currency]);
 
   const { filter } = useContext(SearchContext);
 

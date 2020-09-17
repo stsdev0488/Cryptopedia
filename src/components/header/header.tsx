@@ -19,7 +19,9 @@ interface IHeaderProps {
   isBack?: boolean;
   isLogo?: boolean;
   rightIcon?: TIconTypes;
+  leftIcon?: TIconTypes;
   rightIconHandler?: () => void;
+  leftIconHandler?: () => void;
 }
 
 export const Header: FC<IHeaderProps> = ({
@@ -28,6 +30,8 @@ export const Header: FC<IHeaderProps> = ({
   color,
   rightIcon,
   rightIconHandler,
+  leftIcon,
+  leftIconHandler,
   isBack,
   isLogo,
 }) => {
@@ -75,17 +79,27 @@ export const Header: FC<IHeaderProps> = ({
           </HeaderStyles.BackContent>
         </HeaderStyles.Back>
       )}
-      {rightIcon && (
-        <HeaderStyles.RightIconWrapper style={{ height: paddingTop + 5 }}>
-          <HeaderStyles.RightIcon
+      <HeaderStyles.SideIconsWrapper style={{ height: paddingTop + 5 }}>
+        {leftIcon && (
+          <HeaderStyles.SideIcon
+            underlayColor={COLORS.transparent}
+            onPress={leftIconHandler}
+            isLogo={isLogo}
+            isLeft
+          >
+            <Icon size={20} type={leftIcon} color={color || 'white'} />
+          </HeaderStyles.SideIcon>
+        )}
+        {rightIcon && (
+          <HeaderStyles.SideIcon
             underlayColor={COLORS.transparent}
             onPress={rightIconHandler}
             isLogo={isLogo}
           >
             <Icon size={23} type={rightIcon} color={color || 'white'} />
-          </HeaderStyles.RightIcon>
-        </HeaderStyles.RightIconWrapper>
-      )}
+          </HeaderStyles.SideIcon>
+        )}
+      </HeaderStyles.SideIconsWrapper>
     </HeaderStyles.Wrapper>
   );
 };

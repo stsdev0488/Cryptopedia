@@ -1,4 +1,5 @@
 import React from 'react';
+import ActionSheet from 'react-native-actionsheet';
 
 import { Header } from '@components/header';
 import { SearchHeader } from '@components/search-header';
@@ -7,6 +8,7 @@ import { MarketsRouter } from './components';
 import { useMarketsState } from './markets.state';
 
 import { STRINGS } from '@constants/strings';
+import { CURRENCY_ACTION_OPTIONS } from './markets.constants';
 
 import { Theme } from '@styles/theme';
 
@@ -18,6 +20,8 @@ export const Markets = () => {
     setFilter,
     isSearchOpen,
     filter,
+    actionSheet,
+    onSelect,
   } = useMarketsState();
 
   const { MARKETS } = STRINGS;
@@ -42,11 +46,20 @@ export const Markets = () => {
           color="black"
           rightIcon={isFirstTab ? 'search' : undefined}
           rightIconHandler={handleSearchPress}
+          leftIcon={isFirstTab ? 'currency' : undefined}
+          leftIconHandler={() => actionSheet?.current.show()}
         />
       )}
       <Theme.Screen>
         <MarketsRouter index={index} setIndex={setIndex} />
       </Theme.Screen>
+      <ActionSheet
+        ref={actionSheet}
+        title={MARKETS.currency}
+        options={[...CURRENCY_ACTION_OPTIONS, MARKETS.cancel]}
+        cancelButtonIndex={CURRENCY_ACTION_OPTIONS.length}
+        onPress={onSelect}
+      />
     </Theme.Screen>
   );
 };

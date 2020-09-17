@@ -7,7 +7,6 @@ import { ChartControl } from '../chart-control';
 import { useSubHeaderState } from './sub-header.state';
 import { getChartBasedTime } from './sub-header.utils';
 
-import { CURRENCY_SYMBOLS } from '@constants/currency';
 import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
@@ -39,6 +38,7 @@ export const SubHeader: FC<ISubHeaderProps> = ({
     touched,
     setTouched,
     chartData,
+    currencySymbol,
   } = useSubHeaderState(name, route, symbol);
 
   const { DETAIL } = STRINGS;
@@ -48,7 +48,7 @@ export const SubHeader: FC<ISubHeaderProps> = ({
   return (
     <SubHeaderStyles.Wrapper>
       <Theme.Text fontSize="bigTitle" isCentered color={COLORS.white}>
-        {touched && activePoint ? `${CURRENCY_SYMBOLS.USD}${activePoint.high.toFixed(2)}` : price}
+        {touched && activePoint ? `${currencySymbol}${activePoint.high.toFixed(2)}` : price}
       </Theme.Text>
       <Theme.Text isCentered color={COLORS.white}>
         {touched ? getChartBasedTime(time, date) : time}

@@ -73,7 +73,7 @@ interface IGetNewsParameters {
 interface IGetCoinsParameters {
   limit?: number;
   start?: number;
-  covert?: TCurrency;
+  convert?: TCurrency;
 }
 
 interface IGetSnapshotParameters {

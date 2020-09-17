@@ -10,7 +10,7 @@ export const usePortfolioState = () => {
   const { transaction } = useReduxSelector((redux) => redux);
 
   const [userInfo] = usePromise(async () => {
-    const coins = await trackPromise(getCoins(MAX_COINS));
+    const coins = await trackPromise(getCoins(MAX_COINS, 'USD'));
 
     const spent = transaction.total;
     const prices = Object.entries(transaction.transactions).map(

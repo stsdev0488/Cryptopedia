@@ -7,13 +7,13 @@ export const HeaderStyles = {
     background-color: ${COLORS.primaryBlue}
     padding-bottom: 10px;
   `,
-  RightIconWrapper: styled.View`
+  SideIconsWrapper: styled.View`
     position: absolute;
     width: 100%;
   `,
-  RightIcon: styled.TouchableHighlight<{ isLogo?: boolean }>`
+  SideIcon: styled.TouchableHighlight<{ isLogo?: boolean; isLeft?: boolean }>`
     position: absolute;
-    right: 20px;
+    ${({ isLeft }) => (isLeft ? 'left: 20px;' : 'right: 20px;')}
     top: 100%;
     ${({ isLogo }) => !isLogo && 'margin-top: -5px;'}
   `,

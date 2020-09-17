@@ -7,6 +7,7 @@ import { IconStyles } from './icon.styles';
 import back from '@assets/back.svg';
 import barChart from '@assets/bar-chart.svg';
 import close from '@assets/close.svg';
+import currency from '@assets/currency.svg';
 import forward from '@assets/forward.svg';
 import settings from '@assets/home/settings.svg';
 import videoBars from '@assets/learn/video-bars.svg';
@@ -33,6 +34,7 @@ const ICONS = {
   close,
   star,
   starActive,
+  currency,
 
   lineChart,
   barChart,

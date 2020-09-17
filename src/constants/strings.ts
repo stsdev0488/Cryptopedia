@@ -59,7 +59,9 @@ export const STRINGS = {
     total: 'Total ($)',
     unhandled: 'Unhandled operation',
     notEnough: 'Not enough coins to proceed operation',
-    searchPlaceholder: 'Search Coin name or Symbol...'
+    searchPlaceholder: 'Search Coin name or Symbol...',
+    currency: 'Select Currency',
+    cancel: 'Cancel'
   },
   PORTFOLIO: {
     title: 'Portfolio',

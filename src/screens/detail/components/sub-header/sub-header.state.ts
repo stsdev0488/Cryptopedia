@@ -2,9 +2,10 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 import { getSnapshot } from '@services/api';
-import { usePromise } from '@services/hooks';
+import { usePromise, useReduxSelector } from '@services/hooks';
 import { normilizeSnapshot } from './sub-header.utils';
 
+import { CURRENCY_SYMBOLS } from '@constants/currency';
 import { ROUTES } from '@constants/routes';
 import {
   CHART_OPTIONS, DEFAULT_SNAPSHOT_DATA, TChartTypes, TIME_INTERVALS
@@ -25,12 +26,14 @@ export const useSubHeaderState = (
   const [touched, setTouched] = useState(false);
   const [type, setType] = useState<TChartTypes>('line');
 
+  const { currency } = useReduxSelector((redux) => redux.markets);
+
   const [chartData] = usePromise(async () => {
     const options = CHART_OPTIONS[time] || CHART_OPTIONS[TIME_INTERVALS.hours6];
 
     const snapshot = await getSnapshot(
       symbol,
-      'USD',
+      currency,
       options.count,
       options.step
     );
@@ -59,5 +62,6 @@ export const useSubHeaderState = (
     setTime,
     type,
     setType,
+    currencySymbol: CURRENCY_SYMBOLS[currency] || CURRENCY_SYMBOLS.USD,
   };
 };
