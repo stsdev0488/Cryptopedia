@@ -29,5 +29,6 @@ export const ROUTES = {
 
   coins: 'All Coins',
   defi: 'DeFi Dashboard',
+  defiList: 'DeFi List',
   favorites: 'Favorites',
 };

@@ -63,6 +63,16 @@ export const STRINGS = {
     currency: 'Select Currency',
     cancel: 'Cancel'
   },
+  DEFI: {
+    what: 'What is DeFi?',
+    invest: 'Invest in DeFi',
+    total: 'Total value Locked',
+    currency: 'USD',
+    topRates: 'Top Rates',
+    topPools: 'Top Pools',
+    seeAll: 'See All',
+    value: ' % APR',
+  },
   PORTFOLIO: {
     title: 'Portfolio',
     coin: 'Coin',

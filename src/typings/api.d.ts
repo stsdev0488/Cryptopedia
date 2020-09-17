@@ -3,6 +3,7 @@ export type TCurrency = 'USD' | 'EUR' | 'GBP' | 'JPY' | 'AUD' | 'CAD' | 'BRL';
 export enum API {
   pro = 'https://pro-api.coinmarketcap.com/',
   min = 'https://min-api.cryptocompare.com/data',
+  defi = 'https://data-api.defipulse.com/api/v1',
 }
 
 export interface INewData {
@@ -66,6 +67,11 @@ interface IGetSnapshotReturn {
   Data: ISnapshotData[];
 }
 
+export interface IGetDefiHistoryReturn {
+  timestamp: number;
+  tvlUSD: number;
+}
+
 interface IGetNewsParameters {
   categories?: string;
 }
@@ -82,6 +88,33 @@ interface IGetSnapshotParameters {
   limit?: number;
 }
 
+interface IGetDefiHistoryParams {
+  'api-key': string;
+  period: '1w' | '1m' | '3m' | '1y' | 'all';
+}
+
+interface IGetDefiRatesPoolsParams {
+  'api-key': string;
+}
+
+interface IDefiPool {
+  assets: {
+    symbol: string;
+  }[];
+  poolName: string;
+  roi: number;
+}
+
+interface IGetDefiPoolsReturns {
+  results: IDefiPool[]
+}
+
+interface IDefiRatesReturn {
+  relative_1d: number;
+  chain: TDefiChain;
+  name: string;
+}
+
 export enum MethodsEndpoints {
   get_news = 'v2/news/?lang=EN',
   get_coins = 'v1/cryptocurrency/listings/latest',
@@ -89,6 +122,9 @@ export enum MethodsEndpoints {
   get_snapshot_hour = 'histohour',
   get_snapshot_minute = 'histominute',
   get_snapshot_day = 'histoday',
+  get_defi_history = 'defipulse/api/GetHistory',
+  get_defi_pools = 'blocklytics/pools/v1/exchanges',
+  get_defi_rates = 'defipulse/api/GetProjects',
 }
 
 export interface IMethodsParameters {
@@ -98,6 +134,9 @@ export interface IMethodsParameters {
   get_snapshot_hour: IGetSnapshotParameters;
   get_snapshot_minute: IGetSnapshotParameters;
   get_snapshot_day: IGetSnapshotParameters;
+  get_defi_history: IGetDefiHistoryParams;
+  get_defi_pools: IGetDefiRatesPoolsParams;
+  get_defi_rates: IGetDefiRatesPoolsParams;
 }
 
 export interface IMethodsReturn {
@@ -107,6 +146,9 @@ export interface IMethodsReturn {
   get_snapshot_hour: IGetSnapshotReturn;
   get_snapshot_minute: IGetSnapshotReturn;
   get_snapshot_day: IGetSnapshotReturn;
+  get_defi_history: IGetDefiHistoryReturn[];
+  get_defi_pools: IGetDefiPoolsReturns;
+  get_defi_rates: IDefiRatesReturn[];
 }
 
 export interface IMethodsHeaders {
@@ -118,6 +160,10 @@ export interface IMethodsHeaders {
   get_snapshot_hour: {};
   get_snapshot_minute: {};
   get_snapshot_day: {};
+  get_defi_history: {};
+  get_defi_pools: {};
+  get_defi_rates: {}
 }
 
 export type TSnapshotStep = 'day' | 'hour' | 'minute';
+export type TDefiChain = 'Ethereum' | 'Bitcoin';

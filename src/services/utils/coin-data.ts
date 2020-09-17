@@ -49,7 +49,18 @@ export const getImage = (symbol: string, coinList?: IGetCoinListReturn) => {
   return '';
 };
 
+export const getImageFromArray = (
+  symbols: string[],
+  coinList?: IGetCoinListReturn
+) => {
+  if (!coinList) {
+    return '';
+  }
 
+  const result = symbols.find((symbol) => getImage(symbol, coinList));
+
+  return getImage(result || '', coinList);
+};
 
 export const getCap = (item: ICoinData) => {
   const { quote } = item;
@@ -91,7 +102,7 @@ export const getVolume = (item: ICoinData) => {
   return '-';
 };
 
-const getShortNumber = (cap: number) => {
+export const getShortNumber = (cap: number) => {
   const b_cap = cap / 10 ** 9;
   const m_cap = cap / 10 ** 6;
   const k_cap = cap / 10 ** 3;
