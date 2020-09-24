@@ -4,8 +4,10 @@ import React from 'react';
 import { Button } from '@components/button';
 import { Chart, TopPreview } from './components';
 
+import { openBrowser, openLink } from '@services/utils';
 import { useDefiState } from './defi.state';
 
+import { LINKS } from '@constants/links';
 import { ROUTES } from '@constants/routes';
 import { STRINGS } from '@constants/strings';
 import { COLORS } from '@styles/constants';
@@ -18,9 +20,10 @@ export const DeFi = () => {
 
   const { navigate } = useNavigation();
 
-  const handlePress = () => console.log('pressed');
-
   const { pools, rates } = useDefiState();
+
+  const handlePressWhatIsDefi = () => openLink(LINKS.whatIsDefi);
+  const handlePressInvestInDefi = () => openBrowser(LINKS.investInDefi);
 
   const handlePressPools = () =>
     navigate(ROUTES.defiList, {
@@ -43,7 +46,7 @@ export const DeFi = () => {
               title={DEFI.what}
               color="primaryBlue"
               fontSize="title"
-              onPress={handlePress}
+              onPress={handlePressWhatIsDefi}
             />
           </DefilStyles.ButtonWrapper>
           <DefilStyles.ButtonWrapper>
@@ -51,7 +54,7 @@ export const DeFi = () => {
               title={DEFI.invest}
               color="primaryBlue"
               fontSize="title"
-              onPress={handlePress}
+              onPress={handlePressInvestInDefi}
             />
           </DefilStyles.ButtonWrapper>
         </DefilStyles.Row>
