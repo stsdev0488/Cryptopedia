@@ -27,13 +27,13 @@ export const DeFi = () => {
 
   const handlePressPools = () =>
     navigate(ROUTES.defiList, {
-      title: DEFI.topPools,
+      title: DEFI.pools,
       list: pools,
     });
 
   const handlePressRates = () =>
     navigate(ROUTES.defiList, {
-      title: DEFI.topRates,
+      title: DEFI.rates,
       list: rates,
     });
 

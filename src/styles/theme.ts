@@ -22,6 +22,7 @@ export const Theme = {
       `
       justify-content: center;
       align-items: center;
+      padding: 20px;
     `}
     ${({ color }) => `
       background-color: ${color}

@@ -5,3 +5,7 @@ export const IMAGES = {
   facebook: require('../assets/networks/facebook.png'),
   twitter: require('../assets/networks/twitter.png'),
 };
+
+export const ANIMATIONS = {
+  loader: require('../assets/animations/loading.json'),
+};

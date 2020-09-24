@@ -20,7 +20,11 @@ export const Setting: FC<ISettingProps> = ({ title, link, isLast }) => {
 
   return (
     <View>
-      <SettingsStyles.Touchable onPress={handlePress} isBorder={isLast}>
+      <SettingsStyles.Touchable
+        onPress={handlePress}
+        isBorder={isLast}
+        underlayColor={COLORS.transparent}
+      >
         <SettingsStyles.Row>
           <Theme.Text fontSize="big" color={COLORS.black} numberOfLines={1}>
             {title}

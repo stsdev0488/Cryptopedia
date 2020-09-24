@@ -40,7 +40,7 @@ export const News: FC<INews> = ({ symbol, title, route }) => {
         {DETAIL.news}
       </NewsStyles.Title>
       {news.map((post) => (
-        <NewPreview key={post.id} {...post} />
+        <NewPreview key={post.id} {...post} web={post.source_info.name}  />
       ))}
       <NewsStyles.Separator />
       <TouchableHighlight

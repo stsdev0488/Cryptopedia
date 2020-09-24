@@ -24,7 +24,7 @@ export const DetailNews: FC<IDetailNewsProps> = ({ route }) => {
       <Header title={DETAIL.news} background="black" isBack />
       <ScrollView>
         {news.map((post) => (
-          <NewPreview key={post.id} {...post} />
+          <NewPreview key={post.id} {...post} web={post.source_info.name} />
         ))}
       </ScrollView>
     </Theme.Screen>

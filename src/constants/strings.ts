@@ -70,6 +70,8 @@ export const STRINGS = {
     currency: 'USD',
     topRates: 'Top Rates',
     topPools: 'Top Pools',
+    rates: 'All Rates',
+    pools: 'All Pools',
     seeAll: 'See All',
     value: ' % APR',
   },

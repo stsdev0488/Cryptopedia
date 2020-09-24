@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch } from 'react-native';
 
 import { Header } from '@components/header';
@@ -13,6 +13,7 @@ import { SettingsStyles } from './settings.styles';
 
 export const Settings = () => {
   const { SETTINGS: SETTINGS_STRINGS } = STRINGS;
+  const [isPushNotification, setPushNotification] = useState(false);
 
   return (
     <Theme.Screen>
@@ -28,7 +29,7 @@ export const Settings = () => {
             <Theme.Text fontSize="big" color={COLORS.black}>
               {SETTINGS_STRINGS.toggle}
             </Theme.Text>
-            <Switch />
+            <Switch value={isPushNotification} onValueChange={setPushNotification} />
           </SettingsStyles.Row>
         </SettingsStyles.Touchable>
         <SettingsStyles.TitleWrapper>

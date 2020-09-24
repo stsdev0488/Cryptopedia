@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const DefilStyles = {
-  Wrapper: styled.View`
+  Wrapper: styled.ScrollView`
     padding: 10px;
   `,
   Row: styled.View`
