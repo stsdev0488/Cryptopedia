@@ -49,7 +49,7 @@ export const Coin: FC<ICoinProps> = ({
     >
       <CoinStyles.Wrapper>
         <CoinStyles.Col>
-          <CoinStyles.Index isCentered color={COLORS.primaryGray}>
+          <CoinStyles.Index isCentered color={COLORS.primaryGray} fontSize="big">
             {index}
           </CoinStyles.Index>
           <CoinStyles.ImageWrapper>
@@ -60,14 +60,15 @@ export const Coin: FC<ICoinProps> = ({
           </Theme.Text>
         </CoinStyles.Col>
         <CoinStyles.Col>
-          <Theme.Text color={COLORS.black}>{price}</Theme.Text>
+          <Theme.Text color={COLORS.black} fontSize="big">{price}</Theme.Text>
           <CoinStyles.Change
             isCentered
             color={change < 0 ? COLORS.red : COLORS.green}
+            fontSize="big"
           >
             {change.toFixed(2)}%
           </CoinStyles.Change>
-          <CoinStyles.Cap color={COLORS.black}>{cap}</CoinStyles.Cap>
+          <CoinStyles.Cap color={COLORS.black} fontSize="big">{cap}</CoinStyles.Cap>
         </CoinStyles.Col>
         <CoinStyles.Separator />
       </CoinStyles.Wrapper>

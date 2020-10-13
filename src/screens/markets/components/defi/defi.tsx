@@ -29,6 +29,7 @@ export const DeFi = () => {
     navigate(ROUTES.defiList, {
       title: DEFI.pools,
       list: pools,
+      isWithoutImage: true,
     });
 
   const handlePressRates = () =>
@@ -47,6 +48,7 @@ export const DeFi = () => {
               color="primaryBlue"
               fontSize="title"
               onPress={handlePressWhatIsDefi}
+              padding={10}
             />
           </DefilStyles.ButtonWrapper>
           <DefilStyles.ButtonWrapper>
@@ -55,6 +57,7 @@ export const DeFi = () => {
               color="primaryBlue"
               fontSize="title"
               onPress={handlePressInvestInDefi}
+              padding={10}
             />
           </DefilStyles.ButtonWrapper>
         </DefilStyles.Row>
@@ -68,6 +71,7 @@ export const DeFi = () => {
           title={DEFI.topPools}
           handlePress={handlePressPools}
           lines={pools.slice(0, 4)}
+          isWithoutImage
         />
       </DefilStyles.Wrapper>
     </Theme.Screen>

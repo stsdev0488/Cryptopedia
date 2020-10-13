@@ -32,7 +32,7 @@ export const Coin: FC<ICoin> = ({
   const { navigate } = useNavigation();
 
   const handlePress = () =>
-    navigate(ROUTES.detailPortfolio, {
+    navigate(ROUTES.detail, {
       name: title,
       price,
       cap,

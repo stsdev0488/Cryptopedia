@@ -22,6 +22,8 @@ export const Markets = () => {
     filter,
     actionSheet,
     onSelect,
+    getFavoritesIcon,
+    toggleFavoritesActive,
   } = useMarketsState();
 
   const { MARKETS } = STRINGS;
@@ -47,7 +49,9 @@ export const Markets = () => {
           rightIcon={isFirstTab ? 'search' : undefined}
           rightIconHandler={handleSearchPress}
           leftIcon={isFirstTab ? 'currency' : undefined}
-          leftIconHandler={() => actionSheet?.current.show()}
+          leftIconHandler={() => actionSheet.current?.show()}
+          rightAdditionalIcon={isFirstTab ? getFavoritesIcon() : undefined}
+          rightAdditionalIconHandler={toggleFavoritesActive}
         />
       )}
       <Theme.Screen>

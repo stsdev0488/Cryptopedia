@@ -45,8 +45,6 @@ export const useSubHeaderState = (
   const newRoute =
     route === 'homeRouter'
       ? ROUTES.transactionHome
-      : route === 'portfolioRouter'
-      ? ROUTES.transactionPortfolio
       : ROUTES.transaction;
   const handleAddToPorfolioPress = () =>
     navigate(newRoute, { title: name, symbol });

@@ -31,4 +31,6 @@ export const ROUTES = {
   defi: 'DeFi Dashboard',
   defiList: 'DeFi List',
   favorites: 'Favorites',
+
+  invest: 'Invest',
 };

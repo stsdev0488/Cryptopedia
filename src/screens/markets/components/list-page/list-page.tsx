@@ -17,7 +17,7 @@ import { Theme } from '@styles/theme';
 import { inlineStyles } from './list-page.styles';
 
 export const ListPage: FC<IListPageProps> = ({ route }) => {
-  const { list, title } = route.params;
+  const { list, title, isWithoutImage } = route.params;
 
   const [coinList] = usePromise(async () => await getCoinList());
 
@@ -35,6 +35,7 @@ export const ListPage: FC<IListPageProps> = ({ route }) => {
                 image={getImageFromArray(item.symbols, coinList)}
                 percent={item.percent > 0 ? percentDiffecence.toFixed(2) : '-'}
                 title={item.title}
+                isWithoutImage={isWithoutImage}
               />
             );
           }}

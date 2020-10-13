@@ -8,7 +8,7 @@ export const getDefiHistory = async () => {
   const result = await apiCall(
     API.defi,
     'get_defi_history'
-  )({ period: '1m', 'api-key': API_KEY });
+  )({ period: '3m', 'api-key': API_KEY });
 
   if (Array.isArray(result)) {
     return result;

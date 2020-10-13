@@ -39,7 +39,7 @@ export const Chart = () => {
           </Theme.Text>
         </ChartStyles.Title>
         <ChartStyles.Chart
-          data={chartValues}
+          data={chartValues.reverse()}
           curve={shape.curveNatural}
           contentInset={{ top: 10 }}
           yMin={Math.min(...chartValues) * 0.5}

@@ -1,7 +1,5 @@
 import { RouteProp } from '@react-navigation/native';
 
-
-
 type TParams = {
   listPage: {
     list: {
@@ -10,6 +8,7 @@ type TParams = {
       symbols: string[];
     }[];
     title: string;
+    isWithoutImage?: boolean;
   };
 };
 type TListPaegScreenRouteProp = RouteProp<TParams, 'listPage'>;

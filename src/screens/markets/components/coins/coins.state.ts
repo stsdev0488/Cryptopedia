@@ -1,6 +1,7 @@
 import { useCallback, useContext, useState } from 'react';
 import { trackPromise } from 'react-promise-tracker';
 
+import { FavoritesContext } from '../favorites';
 import { SearchContext } from '../search-context';
 
 import { getCoinList, getCoins } from '@services/api';
@@ -13,7 +14,10 @@ import { ICoinData, IGetCoinListReturn } from '@typings/api';
 
 export const useCoinsState = () => {
   const [refreshing, setRefreshing] = useState(false);
-  const { currency } = useReduxSelector((redux) => redux.markets);
+  const { currency, favorites } = useReduxSelector((redux) => ({
+    currency: redux.markets.currency,
+    favorites: redux.detail.favorites,
+  }));
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -33,12 +37,16 @@ export const useCoinsState = () => {
   usePromise(async () => await trackPromise(loadData()), [currency]);
 
   const { filter } = useContext(SearchContext);
+  const { isFavoritesActive } = useContext(FavoritesContext);
 
   const filteredPagedCoins = coins
     ?.filter(
       ({ name, symbol }) =>
         name.toLowerCase().indexOf(filter?.toLowerCase() || '') !== -1 ||
         symbol.toLowerCase().indexOf(filter?.toLowerCase() || '') !== -1
+    )
+    .filter(({ symbol }) =>
+      isFavoritesActive ? favorites.includes(symbol) : true
     )
     .slice(0, page * COINS_PER_PAGE);
 

@@ -20,12 +20,14 @@ interface ITopPreviewProps {
     percent: number;
     symbols: string[];
   }[];
+  isWithoutImage?: boolean;
 }
 
 export const TopPreview: FC<ITopPreviewProps> = ({
   title,
   handlePress,
   lines,
+  isWithoutImage,
 }) => {
   const [imagedLines] = usePromise(async () => {
     const coinList = await getCoinList();
@@ -57,6 +59,7 @@ export const TopPreview: FC<ITopPreviewProps> = ({
           title={lineTitle}
           percent={percent > 0 ? relative.toFixed(2) : '-'}
           key={`${title}-${index}`}
+          isWithoutImage={isWithoutImage}
         />
       ))}
     </TopPreviewStyles.Wrapper>

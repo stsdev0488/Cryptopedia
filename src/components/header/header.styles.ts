@@ -11,9 +11,14 @@ export const HeaderStyles = {
     position: absolute;
     width: 100%;
   `,
-  SideIcon: styled.TouchableHighlight<{ isLogo?: boolean; isLeft?: boolean }>`
+  SideIcon: styled.TouchableHighlight<{
+    isLogo?: boolean;
+    isLeft?: boolean;
+    isAdditional?: boolean;
+  }>`
     position: absolute;
-    ${({ isLeft }) => (isLeft ? 'left: 20px;' : 'right: 20px;')}
+    ${({ isLeft, isAdditional }) =>
+      isLeft ? 'left: 20px;' : `right: ${isAdditional ? '50px' : '20px'};`}
     top: 100%;
     ${({ isLogo }) => !isLogo && 'margin-top: -5px;'}
   `,

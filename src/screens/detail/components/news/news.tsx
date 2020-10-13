@@ -27,11 +27,7 @@ export const News: FC<INews> = ({ symbol, title, route }) => {
   const { news } = useNewsState(symbol);
 
   const newsRoute =
-    route === 'homeRouter'
-      ? ROUTES.detailNewsHome
-      : route === 'portfolioRouter'
-      ? ROUTES.detailNewsPortfolio
-      : ROUTES.detailNews;
+    route === 'homeRouter' ? ROUTES.detailNewsHome : ROUTES.detailNews;
   const handlePress = () => navigate(newsRoute, { symbol });
 
   return (
@@ -40,7 +36,7 @@ export const News: FC<INews> = ({ symbol, title, route }) => {
         {DETAIL.news}
       </NewsStyles.Title>
       {news.map((post) => (
-        <NewPreview key={post.id} {...post} web={post.source_info.name}  />
+        <NewPreview key={post.id} {...post} web={post.source_info.name} />
       ))}
       <NewsStyles.Separator />
       <TouchableHighlight

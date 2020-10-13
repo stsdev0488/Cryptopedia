@@ -20,8 +20,10 @@ interface IHeaderProps {
   isLogo?: boolean;
   rightIcon?: TIconTypes;
   leftIcon?: TIconTypes;
+  rightAdditionalIcon?: TIconTypes;
   rightIconHandler?: () => void;
   leftIconHandler?: () => void;
+  rightAdditionalIconHandler?: () => void;
 }
 
 export const Header: FC<IHeaderProps> = ({
@@ -32,6 +34,8 @@ export const Header: FC<IHeaderProps> = ({
   rightIconHandler,
   leftIcon,
   leftIconHandler,
+  rightAdditionalIcon,
+  rightAdditionalIconHandler,
   isBack,
   isLogo,
 }) => {
@@ -97,6 +101,16 @@ export const Header: FC<IHeaderProps> = ({
             isLogo={isLogo}
           >
             <Icon size={23} type={rightIcon} color={color || 'white'} />
+          </HeaderStyles.SideIcon>
+        )}
+        {rightAdditionalIcon && (
+          <HeaderStyles.SideIcon
+            underlayColor={COLORS.transparent}
+            onPress={rightAdditionalIconHandler}
+            isLogo={isLogo}
+            isAdditional
+          >
+            <Icon size={20} type={rightAdditionalIcon} color={color || 'white'} />
           </HeaderStyles.SideIcon>
         )}
       </HeaderStyles.SideIconsWrapper>

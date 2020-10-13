@@ -4,9 +4,9 @@ import React from 'react';
 import { ModalWrapper } from '@components/modal';
 import { TabBar } from '@components/tab-bar';
 import { HomeRouter } from '@screens/home';
+import { Invest } from '@screens/invest';
 import { LearnScreenRouter } from '@screens/learn';
 import { MarketsScreenRouter } from '@screens/markets';
-import { PortfolioRouter } from '@screens/portfolio';
 
 import { ROUTES } from '@constants/routes';
 
@@ -25,7 +25,7 @@ export const TabNavigator = () => (
     >
       <Stack.Screen name={ROUTES.home} component={HomeRouter} />
       <Stack.Screen name={ROUTES.markets} component={MarketsScreenRouter} />
-      <Stack.Screen name={ROUTES.portfolio} component={PortfolioRouter} />
+      <Stack.Screen name={ROUTES.invest} component={Invest} />
       <Stack.Screen name={ROUTES.learn} component={LearnScreenRouter} />
     </Stack.Navigator>
     <TabBar />

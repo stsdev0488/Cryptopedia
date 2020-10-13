@@ -13,6 +13,7 @@ import settings from '@assets/home/settings.svg';
 import videoBars from '@assets/learn/video-bars.svg';
 import lineChart from '@assets/line-chart.svg';
 import home from '@assets/menu/home.svg';
+import invest from '@assets/menu/invest.svg';
 import learn from '@assets/menu/learn.svg';
 import markets from '@assets/menu/markets.svg';
 import portfolio from '@assets/menu/portfolio.svg';
@@ -25,6 +26,7 @@ const ICONS = {
   markets,
   portfolio,
   learn,
+  invest,
 
   settings,
 

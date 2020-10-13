@@ -13,7 +13,7 @@ export const CoinStyles = {
   Col: styled.View`
     flex-direction: row;
     align-items: flex-end;
-    padding: 7px 0;
+    padding: 10px 0;
     max-width: 50%;
   `,
   ImageWrapper: styled.View`

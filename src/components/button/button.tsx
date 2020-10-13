@@ -13,6 +13,7 @@ interface IButtonProps {
   isRounded?: boolean;
   isSmall?: boolean;
   fontSize?: keyof typeof FONT_SIZES;
+  padding?: number;
 }
 
 export const Button: FC<IButtonProps> = ({
@@ -23,11 +24,13 @@ export const Button: FC<IButtonProps> = ({
   fontSize,
   textColor,
   isSmall,
+  padding,
 }) => (
   <ButtonStyles.Wrapper
     isRounded={isRounded}
     isSmall={isSmall}
     style={{ backgroundColor: COLORS[color || 'transparent'] }}
+    padding={padding}
   >
     <ButtonStyles.Touchable
       onPress={onPress}

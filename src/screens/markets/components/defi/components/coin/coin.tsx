@@ -11,15 +11,28 @@ interface ICoinProps {
   image?: string;
   title: string;
   percent: string;
+  isWithoutImage?: boolean;
 }
 
-export const Coin: FC<ICoinProps> = ({ image, title, percent }) => (
+export const Coin: FC<ICoinProps> = ({
+  image,
+  title,
+  percent,
+  isWithoutImage,
+}) => (
   <CoinStyles.Wrapper>
     <CoinStyles.Col>
-      <CoinStyles.ImageWrapper>
-        <CoinStyles.Image source={image ? { uri: image } : IMAGES.coin} />
-      </CoinStyles.ImageWrapper>
-      <Theme.Text fontWeight="bold" color={COLORS.black} fontSize="big" numberOfLines={1}>
+      {!isWithoutImage && (
+        <CoinStyles.ImageWrapper>
+          <CoinStyles.Image source={image ? { uri: image } : IMAGES.coin} />
+        </CoinStyles.ImageWrapper>
+      )}
+      <Theme.Text
+        fontWeight="bold"
+        color={COLORS.black}
+        fontSize="big"
+        numberOfLines={1}
+      >
         {title}
       </Theme.Text>
     </CoinStyles.Col>

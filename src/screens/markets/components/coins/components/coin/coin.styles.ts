@@ -13,15 +13,15 @@ export const CoinStyles = {
   Col: styled.View`
     flex-direction: row;
     align-items: center;
-    padding: 7px 0;
+    padding: 10px 0;
   `,
   Index: styled(Theme.Text)`
-    width: 30px;
+    width: 40px;
   `,
   ImageWrapper: styled.View`
-    height: 15px;
-    width: 15px;
-    margin-right: 5px;
+    height: 18px;
+    width: 18px;
+    margin-right: 7px;
     border-radius: 10px;
     overflow: hidden;
   `,
@@ -30,7 +30,7 @@ export const CoinStyles = {
     width: 100%;
   `,
   Change: styled(Theme.Text)`
-    width: 50px;
+    width: 60px;
     text-align: right;
   `,
   Cap: styled(Theme.Text)`
@@ -44,5 +44,5 @@ export const CoinStyles = {
     left: 10px;
     right: 10px;
     background-color: ${COLORS.lightBorder};
-  `
+  `,
 };

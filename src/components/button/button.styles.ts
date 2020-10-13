@@ -6,13 +6,18 @@ interface IRoundedProp {
 interface ISmallProp {
   isSmall?: boolean;
 }
+interface IPaddingProp {
+  padding?: number;
+}
 
 export const ButtonStyles = {
-  Wrapper: styled.View<IRoundedProp & ISmallProp>`
+  Wrapper: styled.View<IRoundedProp & ISmallProp & IPaddingProp>`
     ${({ isRounded }) =>
       isRounded ? 'border-radius: 15px' : 'border-radius: 5px'};
-    ${({ isSmall }) =>
-      isSmall ? 'height: 20px; width: auto; padding: 0 5px;' : 'height: 30px; width: 100%;'}
+    ${({ isSmall, padding }) =>
+      isSmall
+        ? 'height: 20px; width: auto; padding: 0 5px;'
+        : `height: ${30 + (padding || 0)}px; width: 100%;`}
     overflow: hidden;
   `,
   Touchable: styled.TouchableHighlight`

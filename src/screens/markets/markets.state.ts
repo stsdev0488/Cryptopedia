@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import ActionSheet from 'react-native-actionsheet';
 
-import { SearchContext } from './components';
+import { FavoritesContext, SearchContext } from './components';
 
 import { useAction, useReduxSelector } from '@services/hooks';
 import { marketsActions } from './markets.actions';
@@ -17,6 +17,15 @@ export const useMarketsState = () => {
   const actionSheet = useRef<ActionSheet>();
   const setCurrency = useAction(marketsActions.setCurrency);
   const { currency } = useReduxSelector((redux) => redux.markets);
+  const { isFavoritesActive, setFavoritesActive } = useContext(
+    FavoritesContext
+  );
+
+  const toggleFavoritesActive = () => {
+    setFavoritesActive && setFavoritesActive(!isFavoritesActive);
+  };
+
+  const getFavoritesIcon = () => (isFavoritesActive ? 'starActive' : 'star');
 
   const onSelect = (option: number) =>
     setCurrency({
@@ -38,5 +47,7 @@ export const useMarketsState = () => {
     setFilter,
     actionSheet,
     onSelect,
+    getFavoritesIcon,
+    toggleFavoritesActive,
   };
 };

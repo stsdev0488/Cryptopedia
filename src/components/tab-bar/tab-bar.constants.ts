@@ -28,18 +28,16 @@ export const TABS = <ITab[]>[
       ROUTES.detail,
       ROUTES.detailNews,
       ROUTES.transaction,
-    ],
-  },
-  {
-    key: ROUTES.portfolio,
-    icon: 'portfolio',
-    keyTabs: [
-      ROUTES.portfolio,
       ROUTES.portfolioRouter,
       ROUTES.detailPortfolio,
       ROUTES.detailNewsPortfolio,
       ROUTES.transactionPortfolio,
     ],
+  },
+  {
+    key: ROUTES.invest,
+    icon: 'invest',
+    keyTabs: [ROUTES.invest],
   },
   {
     key: ROUTES.learn,

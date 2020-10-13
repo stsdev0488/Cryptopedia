@@ -1,1 +1,1 @@
-export * from './portfolio.router';
+export * from './portfolio';
